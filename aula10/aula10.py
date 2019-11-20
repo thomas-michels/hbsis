@@ -23,6 +23,8 @@ def calcular():
     raiz1 = raiz(num1, num2)
     resto = resto_div(num1, num2)
 
-    return render_template("calcular.html", num1 = num1, num2 = num2, soma = soma, sub = sub, mult = mult, div = div, div_int = div_int, raiz = raiz1, resto = resto)
+    resultados = {"soma": soma, "sub": sub, "mult": mult, "div": div, "div_int": div_int, "raiz": raiz1, "resto": resto}
+
+    return render_template("calcular.html", num1 = num1, num2 = num2, resultados = resultados)
 
 app.run(debug=True)
