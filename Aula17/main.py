@@ -7,7 +7,7 @@ if __name__ == "__main__":
         opcao = int(input(exe1.exibir_cabecalho()))
 
         if opcao == 1:
-            #exe1.cadastrar_cliente()
+            exe1.cadastrar_cliente()
             pass
 
         elif opcao == 2:
