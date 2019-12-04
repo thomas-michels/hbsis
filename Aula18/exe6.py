@@ -6,16 +6,11 @@
 # cada linha possui os dados na seguinte posição: codigo, nome, sexo, idade
 
 def ler():
-    linhas = []
     pessoas = []
     arquivo = open('cadastro.txt', 'r')
-    linhas_arq = arquivo.readlines()
-    for linha in linhas_arq:
+    for linha in arquivo:
         linha = linha.strip().split(';')
-        linhas.append(linha)
-
-    for pessoa in linhas:
-        pessoa = {"codigo": pessoa[0], "nome": pessoa[1], "sexo": pessoa[2], "idade": pessoa[3]}
+        pessoa = {"codigo": linha[0], "nome": linha[1], "sexo": linha[2], "idade": linha[3]}
         pessoas.append(pessoa)
 
     arquivo.close()

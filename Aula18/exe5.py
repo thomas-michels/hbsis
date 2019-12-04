@@ -25,9 +25,12 @@ lista = [
         ]
 cont = 0
 
-for pos in lista:
-    print(f'############# posição {cont} ##################')
-    for pos2 in pos:
-        print(pos2)
-    
-    cont += 1
+def imprimir(lista):
+    for pos in lista:
+        print(f'############# posição {cont} ##################')
+        for pos2 in pos:
+            print(pos2)
+        
+        cont += 1
+
+imprimir(lista)
