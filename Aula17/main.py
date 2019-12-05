@@ -7,23 +7,26 @@ if __name__ == "__main__":
         opcao = int(input(exe1.exibir_cabecalho()))
 
         if opcao == 1:
-            exe1.cadastrar_cliente()
-            pass
+            exe1.cadastrar_clientes()
 
         elif opcao == 2:
-            pass
+            exe1.exibir_clientes(False)
 
         elif opcao == 3:
-            pass
+            exe1.cadastrar_produtos()
 
         elif opcao == 4:
-            pass
+            exe1.exibir_produtos(False)
 
         elif opcao == 5:
-            pass
+            produtos = exe1.exibir_produtos(True)
+            clientes = exe1.exibir_clientes(True)
+            exe1.vender_produto(produtos, clientes)
 
         elif opcao == 6:
-            pass
+            produtos = exe1.exibir_produtos(True)
+            clientes = exe1.exibir_clientes(True)
+            exe1.relatorio_vendas(clientes, produtos)
 
         elif opcao == 7:
             sair = True
