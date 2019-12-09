@@ -13,8 +13,32 @@ pess   = [  ['Alex'   ,'Paulo'  ,'Pedro'  ,'Mateus' ,'Carlos' ,'João'   ,'Joaqu
 # 1 - Usando estas 2 listas, fazer uma função que crie retorne uma lista com dicionários
 # com os dados das pessoas com idade maior ou igua a 18 anos
 #
+
+def separar_pessoas(cab, pess):
+        pessoas = []
+
+        for i in range(0, len(pess)):
+                if int(pess[3][i]) >= 18:
+                        pessoa = {"nome": pess[0][i], "telefone": pess[1][i], "email": pess[2][i], "idade": pess[3][i]}
+                        pessoas.append(pessoa)
+
+        return pessoas
+
+pessoas = separar_pessoas(cab, pess)
+
 #  2 - Imprima a lista resultante com um for imprimindo um dicionário em cada linha 
 # (não prescisa usar o f-string, .format())
 #
+
+for pessoa in pessoas:
+        nome = pessoa["nome"]
+        telefone = pessoa["telefone"]
+        email = pessoa["email"]
+        idade = pessoa["idade"]
+        print(nome + " - " + telefone + " - " + email + " - " + idade)
+
 #  3 - Imprima a lista resultante com um for imprimindo um dicionário em cada linha 
 # (usando o f-string)
+
+for pessoa in pessoas:
+        print(f'{pessoa["nome"]} - {pessoa["telefone"]} - {pessoa["email"]} - {pessoa["idade"]}')
