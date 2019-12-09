@@ -8,7 +8,7 @@
 # 1 - Crie um metodo que gere e retorne uma lista com bibliotecas com os dados dos clientes
 def ler():
     pessoas = []
-    arquivo = open("cadastro.txt", "r")
+    arquivo = open("C:\\Users\\900164\\Documents\\hbsis\\hbsis\\Aula19\\Exercicios\\cadastro.txt", "r")
 
     for linha_st in arquivo:
         linha = linha_st.strip().split(";")
