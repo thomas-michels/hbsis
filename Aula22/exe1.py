@@ -61,3 +61,10 @@ class Pessoa:
 
     def multiplica (self):
         pass # para outra hora!
+
+a = Pessoa("ted", 156, 33, "m")
+a.corre(150)
+a.respira(True)
+print(a.cansada)
+a.corre(99)
+print(a.cansada)
