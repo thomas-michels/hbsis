@@ -34,21 +34,43 @@ class Cliente():
             "cerveja_ipa": 0.05,
             "cerveja_ale": 0.063
         }
+        self.__bebidasMenor = {
+            "refrigerante": 0.01
+        }
 
     def adicionarSaldo(self, valor):
         self.__saldo += valor
 
     def descontarSaldo(self, bebida, quantidade):
-        if (self.__bebidas[str(bebida)] * quantidade) <= self.__saldo:
-            valorDescontado = (self.__bebidas[str(bebida)] * quantidade)
-            self.__saldo -= valorDescontado
-            return (valorDescontado, quantidade)
+        if self.__idade >= 18:
+            if (self.__bebidas[str(bebida)] * quantidade) <= self.__saldo:
+                valorDescontado = (self.__bebidas[str(bebida)] * quantidade)
+                self.__saldo -= valorDescontado
+                return (valorDescontado, quantidade)
 
+            else:
+                qtdPermitida = (self.__saldo // self.__bebidas[str(bebida)])
+                valorDescontado = (self.__bebidas[str(bebida)] * qtdPermitida)
+                self.__saldo -= valorDescontado
+                return (valorDescontado, qtdPermitida)
+            
         else:
-            qtdPermitida = (self.__saldo // self.__bebidas[str(bebida)])
-            valorDescontado = (self.__bebidas[str(bebida)] * qtdPermitida)
-            self.__saldo -= valorDescontado
-            return (valorDescontado, qtdPermitida)
+            try:
+                if (self.__bebidasMenor[str(bebida)] * quantidade) <= self.__saldo:
+                    valorDescontado = (self.__bebidasMenor[str(bebida)] * quantidade)
+                    self.__saldo -= valorDescontado
+                    return (valorDescontado, quantidade)
+
+                else:
+                    qtdPermitida = (self.__saldo // self.__bebidasMenor[str(bebida)])
+                    valorDescontado = (self.__bebidasMenor[str(bebida)] * qtdPermitida)
+                    self.__saldo -= valorDescontado
+                    return (valorDescontado, qtdPermitida)
+                    
+            except KeyError:
+                print("Não pode comprar bebida alcoolica")
+                return(0, 0)
+
 
     def verificarSaldo(self):
         return self.__saldo
