@@ -25,10 +25,11 @@
 #
 #  Observação: Use o try/filnaly para abrir e fechar os arquivos. Veja na aula 21- Ecessões como é!
 
-class Pessoa():
+class Cliente():
+    codigo = 0
 
-    def __init__(self, codigo = int, nome = None, idade = int, sexo = None, email = None, telefone = None):
-        self.codigo = codigo
+    def __init__(self, nome = None, idade = int, sexo = None, email = None, telefone = None):
+        self.codigo += 1
         self.nome = nome
         self.idade = idade
         self.sexo = sexo
@@ -38,12 +39,11 @@ class Pessoa():
     def setInformacao(self, dadoBruto):
 
         dado = dadoBruto.strip().split(';')
-        self.codigo = int(dado[0])
-        self.nome = dado[1]
-        self.idade = int(dado[2])
-        self.sexo = dado[3]
-        self.email = dado[4]
-        self.telefone = dado[5]
+        self.nome = dado[0]
+        self.idade = int(dado[1])
+        self.sexo = dado[2]
+        self.email = dado[3]
+        self.telefone = dado[4]
 
     def salvar(self, att):
 
@@ -86,3 +86,15 @@ class Pessoa():
         conversor = f'{codigo};{nome};{idade};{sexo};{email};{telefone}\n'
         self.setInformacao(conversor)
         self.salvar(True)
+
+if __name__ == "__main__":
+    cliente = Cliente()
+    nome = input("Nome: ")
+    idade = int(input("Idade: "))
+    sexo = input("Sexo: ")
+    email = input("Email: ")
+    telefone = input("Telefone: ")
+    dado = f'{nome};{idade};{sexo};{email};{telefone}'
+    cliente.setInformacao(dado)
+    cliente.salvar(False)
+    
