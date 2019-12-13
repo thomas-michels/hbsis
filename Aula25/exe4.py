@@ -1,4 +1,4 @@
-from exe3 import Produto
+import exe3
 
 # Aula 21 - 12-12-2019
 # Cadastro do produto.
@@ -10,7 +10,7 @@ from exe3 import Produto
 # Para guardar os produtos importe a classe do exercicio 3 e atribua numa lista.
 
 
-class CadastroProduto:
+class CadastroProduto():
 
     __produtos = []
 
@@ -22,13 +22,13 @@ class CadastroProduto:
         lido.
         Os dados lidos devem ser atribuidos a classe produto.
         '''
-         try:
+        try:
             arquivo = open("Aula25\\produtos.txt", "r")
 
             for linha_st in arquivo:
                 linha = linha_st.strip().split(";")
-                cliente = exe1.Cliente(linha[1], linha[2], linha[3], linha[4], linha[5], linha[0])
-                self.__produtos.append(cliente)
+                produto = exe3.Produto(linha[1], linha[2], linha[3], linha[4], linha[0])
+                self.__produtos.append(produto)
 
         except FileNotFoundError:
             print("Arquivo Não Encontrado")
@@ -49,10 +49,10 @@ class CadastroProduto:
         preco_custo = input("preco custo: ")
         preco_venda = input("preco venda: ")
         estoque = input("estoque: ")
-        produto = exe3.Produto(nome, marca, telefone, preco_venda, estoque)
-        self.gravar(False, produto)
+        produto = exe3.Produto(nome, marca, preco_custo, preco_venda, estoque)
+        self.gravar(att, produto)
 
-    def pesquisa_codigo(self,codigo):
+    def pesquisa_codigo(self,codigo, att = False):
         '''
         Neste metodo é feito a pesquisa do produto, mostrando os 
         dados do mesmo.
@@ -65,26 +65,48 @@ class CadastroProduto:
         cont = 0
         for produto in self.__produtos:
             dados = produto.__toString__().strip().split(';')
-            if produto.__eq__(codigo):
-                nome = input("Insira o nome: ")
-                marca = input("marca: ")
-                preco_custo = input("preco custo: ")
-                preco_venda = input("preco venda: ")
-                estoque = input("estoque: ")
-                conversor = f'{nome};{idade};{telefone};{email};{endereco};{codigo}\n'
-                produto.atualizar(conversor)
-                self.gravar(True)
-                return True
+            if int(dados[0]) is codigo:
+
+                if att:
+                    nome = input("Insira o nome: ")
+                    marca = input("marca: ")
+                    preco_custo = input("preco custo: ")
+                    preco_venda = input("preco venda: ")
+                    estoque = input("estoque: ")
+                    conversor = f'{nome};{marca};{preco_custo};{preco_venda};{estoque};{codigo}\n'
+                    produto.atualizar(conversor)
+                    self.gravar(True)
+
+                return produto
 
             cont += 1
 
         return False
 
-    def gravar(self,nome_arquivo,atributo):
+    def gravar(self, att, produto = None):
         '''
         Este é responsável por gravar os dados.
         use o atributo 'w' para sobrescrever o arquivo e o
         atributo 'a' para adicionar linha.
         o parametro nome_arquivo é o nome do arquivo em que se deseja gravar.
         '''
-        pass
+        if att is False and produto is not None:
+            arquivo = open("Aula25\\produtos.txt", "a")
+            dados = produto.__toString__()
+            arquivo.write(f'{dados}\n')
+            arquivo.close()
+
+        else:
+            arquivoWrite = open("Aula25\\produtos.txt", "w")
+            for produto_c in self.__produtos:
+                produto = produto_c.__toString__()
+                conversor = f'{produto}\n'
+                arquivoWrite.write(conversor)
+            
+            arquivoWrite.close()
+
+if __name__ == "__main__":
+    cadastro = CadastroProduto()
+    cadastro.cadastro_produto()
+    cadastro.cadastro_produto()
+    print(cadastro.pesquisa_codigo(int(input("Codigo: "))))

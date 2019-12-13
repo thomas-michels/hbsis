@@ -54,7 +54,7 @@ class CadastroCliente():
         cliente = exe1.Cliente(nome, idade, telefone, email, endereco)
         self.gravar(False, cliente)
 
-    def pesquisa_codigo(self,codigo):
+    def pesquisa_codigo(self,codigo, att = False):
         '''
         Neste metodo é feito a pesquisa do cliente, mostrando os 
         dados do mesmo.
@@ -67,16 +67,21 @@ class CadastroCliente():
         cont = 0
         for cliente in self.__clientes:
             dados = cliente.__toString__().strip().split(';')
-            if cliente.__eq__(codigo):
-                nome = input("Nome: ")
-                idade = int(input("Idade: "))
-                telefone = input("Telefone: ")
-                email = input("Email: ")
-                endereco = input("Endereco: ")
-                conversor = f'{nome};{idade};{telefone};{email};{endereco};{codigo}\n'
-                cliente.atualizar(conversor)
-                self.gravar(True)
-                return True
+            if int(dados[0]) == codigo:
+
+                try:
+                    if att:
+                        nome = input("Nome: ")
+                        idade = int(input("Idade: "))
+                        telefone = input("Telefone: ")
+                        email = input("Email: ")
+                        endereco = input("Endereco: ")
+                        conversor = f'{nome};{idade};{telefone};{email};{endereco};{codigo}\n'
+                        cliente.atualizar(conversor)
+                        self.gravar(True)
+
+                finally:
+                    return cliente
 
             cont += 1
 
@@ -107,6 +112,6 @@ class CadastroCliente():
 
 if __name__ == "__main__":
     cadastro = CadastroCliente()
-    cadastro.cadastro_cliente()
+    #cadastro.cadastro_cliente()
     codigo = int(input("Codigo: "))
     print(cadastro.pesquisa_codigo(codigo))

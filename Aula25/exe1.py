@@ -54,6 +54,18 @@ class Cliente(object):
         self.__endereco = conversor[4]
         self.__codigo = conversor[5]
 
+    def getClienteDev(self):
+        return self.__cliente_devedor
+
+    def getSaldo(self):
+        return self.__saldo
+
+    def getNome(self):
+        return self.__nome
+
+    def getEndereco(self):
+        return self.__endereco
+
     def limite_credito(self,valor = None):
         '''
         O crédito é o valor máximo que o cliente pode ter de saldo negativo.
@@ -116,17 +128,6 @@ class Cliente(object):
         elif self.__cliente_devedor is False:
             self.__saldo += valor
             return True
-
-    def __eq__(self,valor):
-        '''
-        Este metodo deve comparar se o valor do código do cliente é igual ao valor.
-        Se positivo ele retorna True caso contrário retorna False
-        '''
-        if self.__codigo == valor:
-            return True
-
-        else:
-            return False
 
     def __toString__(self):
         '''

@@ -27,7 +27,7 @@ class Produto(object):
         self.__marca = marca
         self.__preco_custo = preco_custo
         self.__preco_venda = preco_venda
-        self.__estoque = estoque
+        self.__estoque = int(estoque)
         self.__codigo = codigo
 
         self.setCodigo()
@@ -54,7 +54,24 @@ class Produto(object):
         Esta função é usada para atualizar a quantidade de produto no estoque.
         
         '''
-        self.__estoque -= quantidade
+        if (self.__estoque - quantidade) < 0:
+            qtdPermitida = self.__estoque
+
+        else:
+            qtdPermitida = quantidade
+
+        self.__estoque -= qtdPermitida
+
+        #print(self.__estoque)
+        #print(qtdPermitida)
+
+        return qtdPermitida
+
+    def getEstoque(self):
+        return self.__estoque
+
+    def getNome(self):
+        return self.__nome
 
     def __eq__(self,valor):
         '''
@@ -72,5 +89,14 @@ class Produto(object):
         Este metodo deve retornar uma string com todos os dados.
         Use f-string para interpolar o texto com as variáveis
         '''
+        #print(self.__preco_venda)
         conversor = f'{self.__codigo};{self.__nome};{self.__preco_custo};{self.__preco_venda};{self.__estoque}'
         return conversor
+   
+
+
+if __name__ == "__main__":
+    p = Produto('agua','ab',15.6,20,10)
+    print(p)
+    p.atualizar_estoque(11)
+    print(p)
