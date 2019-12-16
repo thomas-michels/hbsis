@@ -62,10 +62,10 @@ print(str_lista)
 # 4) Crie uma função que solicite 5 nomes e retorne uma lista com todos eles
 
 def receberNomes():
-    nomes = []
-    for i in range(5):
-        nome = input("Insira um nome: ")
-        nomes.append(nome)
+    nomes = ["a", "b", "c", "d", "e"]
+    # for i in range(5):
+    #     nome = input("Insira um nome: ")
+    #     nomes.append(nome)
 
     return nomes
 
@@ -73,12 +73,12 @@ def receberNomes():
 # 5) Com a lista "Nomes", feita no exercicio 4 (anterior) faça uma cópia para 'Nomes2' e adicione 
 # o nome "Pedro Paulada" no "Nomes" e "Paulo Cacetada" no "Nomes2"
 
-# nomes = receberNomes()
-# nomes2 = copy.deepcopy(nomes)
-# nomes.append("Pedro Paulada")
-# nomes2.append("Paulo Cacetada")
-# print(nomes)
-# print(nomes2)
+nomes = receberNomes()
+nomes2 = copy.deepcopy(nomes)
+nomes.append("Pedro Paulada")
+nomes2.append("Paulo Cacetada")
+print(nomes)
+print(nomes2)
 
 # 6) Com a lista 'lista_aninhada' faça uma cópia e nomeie como 'lista_aninhada_2'. Na lista_aninhada
 # adicione ao lado do número 9 o número 10. Na lista_aninhada_2 adicione ao lado do número 8 a frase 
@@ -96,16 +96,22 @@ print(lista_aninhada_2)
 # Adicione na lista_aninhada, entre os números 1 e 2, a frase 'um, dois' e na lista_aninhada_2, 
 # entre os números 1 e 2 a frase 'Adiciono qualquer coisa em qualquer lugar nesta lista!'
 
-
+lista_aninhada.insert(2, nomes)
+lista_aninhada_2[3].insert(1, 'Pedro Pedroca')
+print(lista_aninhada)
+print(lista_aninhada_2)
 
 # 8) Com a lista1, ordene os números de maior para menor!
 
 lista1 = lista_simples_int(100)
-
+lista1.sort()
+#print(lista1)
 
 # 9) Com a lista2, ordene os números de menor para maior!
 
 lista2 = lista_simples_int(100)
+lista2.sort(reverse=True)
+#print(lista2)
 
 # 10) Usando o metodo, adicione a lista1 e lista2 (já ordenadas) na lista0.
 
