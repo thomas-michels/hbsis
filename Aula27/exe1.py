@@ -4,6 +4,35 @@
 # Faça uma função que receba o texto como parametro e retorne uma lista com
 #  dicionários.
 
+def separarDados(texto):
+    dados = []
+    dados1 = []
+    texto1 = texto.strip()
+    inicio = 0
+    cont = 0
+    for dado in texto1:
+        
+        if dado == '\n':
+            lista = texto1[inicio:cont]
+            inicio = cont+1
+            dados.append(lista)
+        
+
+        cont += 1
+
+    for dado in dados:
+        text = dado.split(';')
+        dic = {"codigo": text[0],
+        "nome": text[1],
+        "idade": text[2],
+        "sexo": text[3],
+        "email": text[4],
+        "telefone": text[5]}
+        dados1.append(dic)
+        
+    return dados1
+
+
 
 texto = '''1;Arnaldo;23;m;alexcabeludo2@hotmail.com;014908648117
 2;Haroldo;44;f;baratarebelde@gmail.com;050923172729
@@ -54,4 +83,6 @@ texto = '''1;Arnaldo;23;m;alexcabeludo2@hotmail.com;014908648117
 47;Thayná;42;m;caio167@hotmail.com;028984798536
 48;Paola;50;m;chel_bdl@hotmail.com;024966119466
 49;Silvio;45;m;laurim_crazyboy@hotmail.com;033986392040
-50;Vanusa;23;m;aline_gatinha_13@yahoo.com.br;015938655596'''
+50;Vanusa;23;m;aline_gatinha_13@yahoo.com.br;015938655596;'''
+
+print(separarDados(texto))

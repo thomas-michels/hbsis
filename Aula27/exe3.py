@@ -11,4 +11,18 @@ lista = [['1', 'Arnaldo', '23', 'm', 'alexcabeludo2@hotmail.com', '014908648117'
 # de mulheres e a lista[1] possua todas as listas de homens.
 # 2) Após receber a lista da função, imprima na tela a quantidade de mulheres e de homens que tem nesta lista.
 
+def separarSexo(lista):
+    homens = 0
+    mulheres = 0
 
+    for dado in lista:
+        if dado[3] == 'm':
+            homens += 1
+
+        elif dado[3] == 'f':
+            mulheres += 1
+
+    return (homens, mulheres)
+
+dados = separarSexo(lista)
+print(f'Homens: {dados[0]} - Mulheres: {dados[1]}')
