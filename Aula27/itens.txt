@@ -390,3 +390,31 @@ tenis;25
 regata;33
 bone;55
 chinelo;10
+mamão;10.0
+abacaxi;2.56
+laranja;5.25
+uva;9.5
+pera;10.05
+maçã;15
+vergamota;5.75
+alface crespa;2.99
+alface lisa;2.95
+rucula;3.5
+almerão;3.25
+repolho;5.89
+salsinha;2.9
+cebolinha;2.5
+feijão;9.0
+erviha;5.0
+lentilha;7.5
+vagem;1.75
+feijão branco;10.9
+gão de bico;5.99
+soja;3.55
+camisa;20
+terno;100
+calca;50
+tenis;25
+regata;33
+bone;55
+chinelo;10

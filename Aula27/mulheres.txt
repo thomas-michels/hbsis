@@ -1,0 +1,6 @@
+2019/12/04 6:19:40 PM GMT-3,F,Ensino Médio Incompleto,Não,NDA,17,Bolacha,Talvez,Não bebo cerveja,0,Talvez,H2OH! Limão,36,47
+2019/12/04 6:30:31 PM GMT-3,F,Ensino Superior Incompleto,Sim,Moto,29,Biscoito,Sim,Stella Artois,4,Sim,Pepsi Twist,0,0
+2019/12/05 8:10:29 AM GMT-3,F,Ensino Superior Incompleto,Sim,Bicicleta,19,Bolacha,Sim,Coronha,96,Sim,H2OH! Limão,12,9
+2019/12/05 8:19:08 AM GMT-3,F,Ensino Superior Incompleto,Sim,Megazorde,19,Bolacha,Sim,Goose Island,80,Sim,Pepsi Twist,0,0
+2019/12/05 10:22:46 AM GMT-3,F,Ensino Superior Incompleto,Não,NDA,20,Bolacha,Sim,Stella Artois,96,Talvez,Antartica Citrus,0,0
+2019/12/09 8:01:08 AM GMT-3,F,Ensino Superior Incompleto,Sim,Megazorde,27,Bolacha,Sim,Brahma,72,Não,Não bebo refrigerante,0,0

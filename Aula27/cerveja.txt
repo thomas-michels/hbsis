@@ -1,0 +1,19 @@
+2019/12/04 6:14:41 PM GMT-3,M,Ensino Médio Completo,Não,NDA,18,Bolacha,Sim,Coronha,0,Sim,H2OH! Limão,0,0
+2019/12/04 6:15:06 PM GMT-3,M,Ensino Superior Incompleto,Sim,Megazorde,21,Biscoito,Sim,Budweiser,96,Sim,Guaraná Antartica,0,0
+2019/12/04 6:17:38 PM GMT-3,M,Ensino Médio Incompleto,Não,NDA,17,Bolacha,Sim,Skol,0,Sim,Pepsi Twist,0,0
+2019/12/04 6:19:18 PM GMT-3,M,Ensino Superior Incompleto,Sim,Carro,31,Bolacha,Sim,Budweiser,96,Não,Não bebo refrigerante,18,19.31
+2019/12/04 6:19:54 PM GMT-3,M,Pós Graduado Completo,Sim,Megazorde,24,Biscoito,Sim,Skol,69,Sim,Sukita Laranja, 2,6
+2019/12/04 6:27:58 PM GMT-3,M,Ensino Superior Incompleto,Não,NDA,18,Bolacha,Sim,Stella Artois,68,Sim,Pepsi Twist,12,28
+2019/12/04 6:30:31 PM GMT-3,F,Ensino Superior Incompleto,Sim,Moto,29,Biscoito,Sim,Stella Artois,4,Sim,Pepsi Twist,0,0
+2019/12/04 6:40:28 PM GMT-3,M,Ensino Superior Incompleto,Não,NDA,22,Biscoito,Sim,Brahma,0,Talvez,Pepsi Twist,0,0
+2019/12/04 6:41:45 PM GMT-3,M,Ensino Superior Incompleto,Sim,Carro,23,Bolacha,Sim,Original,4,Sim,Pepsi Twist,4,43
+2019/12/04 7:22:25 PM GMT-3,M,Ensino Superior Incompleto,Sim,Carro,21,Bolacha,Sim,Budweiser,96,Sim,Pepsi,0,0
+2019/12/04 8:14:18 PM GMT-3,M,Ensino Superior Incompleto,Não,NDA,23,Biscoito,Sim,Antarctica,96,Sim,Sukita Laranja,12,28
+2019/12/04 11:08:38 PM GMT-3,M,Ensino Médio Completo,Sim,Moto,30,Bolacha,Sim,Budweiser,4,Não,Guaraná Antartica,0,0
+2019/12/05 8:09:04 AM GMT-3,M,Ensino Médio Incompleto,Não,NDA,18,Bolacha,Sim,Coronha,0,Sim,Guaraná Antartica,0,0
+2019/12/05 8:10:00 AM GMT-3,M,Ensino Superior Incompleto,Sim,Megazorde,19,Biscoito,Sim,Budweiser,4,Sim,Pepsi Twist,2,25
+2019/12/05 8:10:29 AM GMT-3,F,Ensino Superior Incompleto,Sim,Bicicleta,19,Bolacha,Sim,Coronha,96,Sim,H2OH! Limão,12,9
+2019/12/05 8:19:08 AM GMT-3,F,Ensino Superior Incompleto,Sim,Megazorde,19,Bolacha,Sim,Goose Island,80,Sim,Pepsi Twist,0,0
+2019/12/05 10:22:46 AM GMT-3,F,Ensino Superior Incompleto,Não,NDA,20,Bolacha,Sim,Stella Artois,96,Talvez,Antartica Citrus,0,0
+2019/12/07 9:44:04 AM GMT-3,M,Ensino Superior Incompleto,Sim,Carro,31,Biscoito,Sim,Budweiser,83,Sim,Guaraná Antartica,6,12
+2019/12/09 8:01:08 AM GMT-3,F,Ensino Superior Incompleto,Sim,Megazorde,27,Bolacha,Sim,Brahma,72,Não,Não bebo refrigerante,0,0
