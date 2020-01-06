@@ -33,7 +33,7 @@ class Sorteio():
         self.salvar("alunos")
 
     def salvar(self, nome_arquivo):
-        arquivo = open("Aula27\\{}.txt".format(nome_arquivo), "w")
+        arquivo = open("hbsis\\Aula27\\{}.txt".format(nome_arquivo), "w")
         for dado in self.__dados:
             arquivo.write(f'{dado}\n')
 
@@ -42,7 +42,7 @@ class Sorteio():
         self.getTamanhoArquivo()
 
     def lerArquivo(self, arquivo):
-        arquivo1 = open(f"Aula27\\{arquivo}.txt", "r")
+        arquivo1 = open(f"hbsis\\Aula27\\{arquivo}.txt", "r")
         linhas = []
         for linha_st in arquivo1:
             linha = linha_st.strip()
