@@ -70,6 +70,17 @@ class Transporte():
 
         return (pessoa1, pessoa2, destino)
 
+
+    def retornar(self, retorno):
+
+        print("\n")
+        print(f'Destino: {retorno[2]} - Pessoas: {retorno[0]}, {retorno[1]}')
+        print(f'Fortwo posicao - {self.__fortwo_pos}')
+        print(f'Terminal - {self.__terminal}')
+        print(f'Aviao - {self.__avião}')
+        print("\n" + "#" * 50)
+
+
     def loop(self):
         sair = False
 
@@ -77,132 +88,74 @@ class Transporte():
         pessoa2 = self.__terminal[1]
         retorno = self.transportar("aviao", pessoa1, pessoa2)
 
-        print(f'Destino: {retorno[2]} - Pessoas: {retorno[0]}, {retorno[1]}')
-        print(f'Fortwo posicao - {self.__fortwo_pos}')
-        print(f'Terminal - {self.__terminal}')
-        print(f'Aviao - {self.__avião}')
-        print("")
+        self.retornar(retorno)
 
         pessoa1 = self.__avião[1]
-        pessoa2 = None
         retorno = self.transportar("terminal", pessoa1)
 
-        print(f'Destino: {retorno[2]} - Pessoas: {retorno[0]}, {retorno[1]}')
-        print(f'Fortwo posicao - {self.__fortwo_pos}')
-        print(f'Terminal - {self.__terminal}')
-        print(f'Aviao - {self.__avião}')
-        print("")
+        self.retornar(retorno)
 
         pessoa1 = self.__terminal[0]
         pessoa2 = self.__terminal[2]
         retorno = self.transportar("aviao", pessoa1, pessoa2)
 
-        print(f'Destino: {retorno[2]} - Pessoas: {retorno[0]}, {retorno[1]}')
-        print(f'Fortwo posicao - {self.__fortwo_pos}')
-        print(f'Terminal - {self.__terminal}')
-        print(f'Aviao - {self.__avião}')
-        print("")
+        self.retornar(retorno)
 
         pessoa1 = self.__avião[0]
-        pessoa2 = None
         retorno = self.transportar("terminal", pessoa1)
 
-        print(f'Destino: {retorno[2]} - Pessoas: {retorno[0]}, {retorno[1]}')
-        print(f'Fortwo posicao - {self.__fortwo_pos}')
-        print(f'Terminal - {self.__terminal}')
-        print(f'Aviao - {self.__avião}')
-        print("")
+        self.retornar(retorno)
 
         pessoa1 = self.__terminal[0]
         pessoa2 = self.__terminal[2]
         retorno = self.transportar("aviao", pessoa1, pessoa2)
 
-        print(f'Destino: {retorno[2]} - Pessoas: {retorno[0]}, {retorno[1]}')
-        print(f'Fortwo posicao - {self.__fortwo_pos}')
-        print(f'Terminal - {self.__terminal}')
-        print(f'Aviao - {self.__avião}')
-        print("")
+        self.retornar(retorno)
 
         pessoa1 = self.__avião[1]
-        pessoa2 = None
         retorno = self.transportar("terminal", pessoa1)
 
-        print(f'Destino: {retorno[2]} - Pessoas: {retorno[0]}, {retorno[1]}')
-        print(f'Fortwo posicao - {self.__fortwo_pos}')
-        print(f'Terminal - {self.__terminal}')
-        print(f'Aviao - {self.__avião}')
-        print("")
+        self.retornar(retorno)
 
         pessoa1 = self.__terminal[0]
         pessoa2 = self.__terminal[2]
         retorno = self.transportar("aviao", pessoa1, pessoa2)
 
-        print(f'Destino: {retorno[2]} - Pessoas: {retorno[0]}, {retorno[1]}')
-        print(f'Fortwo posicao - {self.__fortwo_pos}')
-        print(f'Terminal - {self.__terminal}')
-        print(f'Aviao - {self.__avião}')
-        print("")
+        self.retornar(retorno)
 
         pessoa1 = self.__avião[3]
-        pessoa2 = None
         retorno = self.transportar("terminal", pessoa1)
 
-        print(f'Destino: {retorno[2]} - Pessoas: {retorno[0]}, {retorno[1]}')
-        print(f'Fortwo posicao - {self.__fortwo_pos}')
-        print(f'Terminal - {self.__terminal}')
-        print(f'Aviao - {self.__avião}')
-        print("")
+        self.retornar(retorno)
 
         pessoa1 = self.__terminal[0]
         pessoa2 = self.__terminal[1]
         retorno = self.transportar("aviao", pessoa1, pessoa2)
 
-        print(f'Destino: {retorno[2]} - Pessoas: {retorno[0]}, {retorno[1]}')
-        print(f'Fortwo posicao - {self.__fortwo_pos}')
-        print(f'Terminal - {self.__terminal}')
-        print(f'Aviao - {self.__avião}')
-        print("")
+        self.retornar(retorno)
 
         pessoa1 = self.__avião[1]
-        pessoa2 = None
         retorno = self.transportar("terminal", pessoa1)
 
-        print(f'Destino: {retorno[2]} - Pessoas: {retorno[0]}, {retorno[1]}')
-        print(f'Fortwo posicao - {self.__fortwo_pos}')
-        print(f'Terminal - {self.__terminal}')
-        print(f'Aviao - {self.__avião}')
-        print("")
+        self.retornar(retorno)
 
 
         pessoa1 = self.__terminal[1]
         pessoa2 = self.__terminal[2]
         retorno = self.transportar("aviao", pessoa1, pessoa2)
 
-        print(f'Destino: {retorno[2]} - Pessoas: {retorno[0]}, {retorno[1]}')
-        print(f'Fortwo posicao - {self.__fortwo_pos}')
-        print(f'Terminal - {self.__terminal}')
-        print(f'Aviao - {self.__avião}')
-        print("")
+        self.retornar(retorno)
 
         pessoa1 = self.__avião[4]
-        pessoa2 = None
         retorno = self.transportar("terminal", pessoa1)
 
-        print(f'Destino: {retorno[2]} - Pessoas: {retorno[0]}, {retorno[1]}')
-        print(f'Fortwo posicao - {self.__fortwo_pos}')
-        print(f'Terminal - {self.__terminal}')
-        print(f'Aviao - {self.__avião}')
-        print("")
+        self.retornar(retorno)
 
         pessoa1 = self.__terminal[0]
         pessoa2 = self.__terminal[1]
         retorno = self.transportar("aviao", pessoa1, pessoa2)
 
-        print(f'Destino: {retorno[2]} - Pessoas: {retorno[0]}, {retorno[1]}')
-        print(f'Fortwo posicao - {self.__fortwo_pos}')
-        print(f'Terminal - {self.__terminal}')
-        print(f'Aviao - {self.__avião}')
-        print("")
+        self.retornar(retorno)
 
 fortwo = Transporte()
 fortwo.loop()
