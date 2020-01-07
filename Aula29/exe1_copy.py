@@ -22,10 +22,42 @@
 
 class Transporte():
 
-    __terminal = ['piloto', 'oficial 1', 'oficial 2', 'chefe de voo', 'comissaria 1', 'comissaria 2', 'policial', 'presidiario']
+    __terminal = []
     __avião = []
     __fortwo_pos = "terminal"
-        
+
+    def lerArquivo(self, nome):
+        arquivo = open('HBSIS\\Aula29\\{}.txt'.format(nome), 'r')
+
+        if nome == "terminal":
+            for linha_st in arquivo:
+                linha = linha_st.strip()
+                self.__terminal.append(linha)
+
+            arquivo.close()
+
+        elif nome == "aviao":
+            for linha_st in arquivo:
+                linha = linha_st.strip()
+                self.__ter__avião.append(linha)
+
+            arquivo.close()
+
+    def adicionarNoArquivo(self, nome):
+        arquivo = open("HBSIS\\Aula29\\{}.txt".format(nome), "w")
+
+        if nome == "terminal":
+            for dado in self.__terminal:
+                arquivo.write(f'{dado}\n')
+
+            arquivo.close()
+
+        elif nome == "aviao":
+            for dado in self.__avião:
+                arquivo.write(f'{dado}\n')
+
+            arquivo.close()
+
     def transportar(self, destino, pessoa1, pessoa2=None):
  
         if destino == "terminal":
@@ -62,7 +94,8 @@ class Transporte():
 
 
     def loop(self):
-        sair = False
+        self.lerArquivo("terminal")
+        self.lerArquivo("aviao")
 
         pessoa1 = self.__terminal[0]
         pessoa2 = self.__terminal[1]
@@ -122,6 +155,9 @@ class Transporte():
         pessoa2 = self.__terminal[1]
         retorno = self.transportar("aviao", pessoa1, pessoa2)
         self.retornar(retorno)
+
+        self.adicionarNoArquivo("aviao")
+        self.adicionarNoArquivo("terminal")
 
 fortwo = Transporte()
 fortwo.loop()
