@@ -17,11 +17,20 @@ def consultarAll():
     with closing(MySQLdb.connect(**__dados)) as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM ThomasMichels")
-        print(cursor.fetchall())
+        pessoas = cursor.fetchall()
+        for pessoa in pessoas:
+            print(pessoa)
 
-for i in range(1):
-    nome = input("Insira o nome: ")
-    idade = int(input("Insira a idade: "))
-    cadastrar(nome, idade)
+def apagar(id_pessoa):
+    with closing(MySQLdb.connect(**__dados)) as conn:
+        cursor = conn.cursor()
+        cursor.execute(f"DELETE FROM ThomasMichels WHERE id = {id_pessoa}")
+        conn.commit()
 
+#nome = input("Insira o nome: ")
+#idade = int(input("Insira a idade: "))
+#cadastrar(nome, idade)
+
+consultarAll()
+apagar(4)
 consultarAll()
