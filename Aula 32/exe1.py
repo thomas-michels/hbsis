@@ -1,9 +1,10 @@
 from flask_mysqldb import MySQLdb
 
+
 class Pessoa():
 
     def __init__(self):
-        self.conexao = MySQLdb.connect(host = "localhost", database = 'aulabd', user = 'root', passwd = '')
+        self.conexao = MySQLdb.connect(host="localhost", database='aulabd', user='root', passwd='')
         self.cursor = self.conexao.cursor()
 
     def comitar(self):
@@ -19,7 +20,8 @@ class Pessoa():
         print(pessoa)
 
     def alterar(self, id_pessoa, nome, idade, endereco="NULL"):
-        self.cursor.execute(f"UPDATE Pessoa SET nome = '{nome}', idade = '{idade}', endereco = '{endereco}' WHERE Pessoa.id = {id_pessoa}")
+        self.cursor.execute(
+            f"UPDATE Pessoa SET nome = '{nome}', idade = '{idade}', endereco = '{endereco}' WHERE Pessoa.id = {id_pessoa}")
         self.comitar()
 
     def consultarAll(self):
@@ -29,12 +31,12 @@ class Pessoa():
             print(pessoa)
 
     def apagar(self, id_pessoa):
-        cursor.execute(f"DELETE FROM Pessoa WHERE id = {id_pessoa}")
+        self.cursor.execute(f"DELETE FROM Pessoa WHERE id = {id_pessoa}")
         self.comitar()
 
 
 if __name__ == "__main__":
     pessoa = Pessoa()
-    #pessoa.cadastrar("Ana ao contrario", 19)
-    #pessoa.buscar(1)
+    # pessoa.cadastrar("Ana ao contrario", 19)
+    # pessoa.buscar(1)
     pessoa.alterar(2, "Ana", 19, 1)
