@@ -16,3 +16,6 @@ class PessoaController:
 
     def adicionar(self, nome, sobrenome, idade, id_endereco="NULL"):
         self.p_db.adicionar(nome, sobrenome, idade, id_endereco)
+
+    def deletar(self, id_pessoa):
+        self.p_db.deletar(id_pessoa)

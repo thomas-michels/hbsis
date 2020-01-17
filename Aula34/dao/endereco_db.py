@@ -1,4 +1,6 @@
 import MySQLdb
+import sys
+sys.path.append('C:/Users/900164/Documents/hbsis/hbsis/Aula34')
 from model.endereco import Endereco
 
 
@@ -16,6 +18,16 @@ class EnderecoDb():
         resultado = self.cursor.fetchall()
         lista_pessoas_classe = self.converter_tabela_classe(resultado)
         return lista_pessoas_classe
+
+    def adicionar(self,logradouro, numero, complemento, bairro, cidade, cep):
+        comando_sql_insert = f"INSERT INTO 01_MDG_ENDERECO (LOGRADOURO, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, CEP) VALUES ('{logradouro}', {numero}, '{complemento}', '{bairro}', '{cidade}', '{cep}')"
+        self.cursor.execute((comando_sql_insert))
+        self.conexao.commit()
+
+    def deletar(self, id):
+        comando_sql_delete = f"DELETE FROM 01_MDG_ENDERECO WHERE ID= {id}"
+        self.cursor.execute(comando_sql_delete)
+        self.conexao.commit()
 
     def buscar_por_id(self, id):
         # ----- Criação do comando SQL e passado para o cursor

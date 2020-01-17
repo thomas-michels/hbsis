@@ -34,4 +34,36 @@ def adicionar_pessoa():
 
     return render_template('cadastro.html')
 
+@app.route('/cadastro-endereco', methods=['GET', 'POST'])
+def adicionar_endereco():
+    if request.method == 'POST':
+        logradouro = request.form['logradouro']
+        numero = int(request.form['numero'])
+        complemento = request.form['complemento']
+        bairro = request.form['bairro']
+        cidade = request.form['cidade']
+        cep = request.form['cep']
+        ec.adicionar(logradouro, numero, complemento, bairro, cidade, cep)
+        return redirect('/')
+
+    return render_template('cadastro_end.html')
+
+@app.route('/deletar-pessoa', methods=['GET', 'POST'])
+def deletar_pessoa():
+    if request.method == 'POST':
+        id = request.form['id']
+        pc.deletar(id)
+        return redirect('/')
+
+    return render_template('deletar.html', caminho="/deletar-pessoa")
+
+@app.route('/deletar-endereco', methods=['GET', 'POST'])
+def deletar_endereco():
+    if request.method == 'POST':
+        id = request.form['id']
+        ec.deletar(id)
+        return redirect('/')
+
+    return render_template('deletar.html', caminho="/deletar-endereco")
+
 app.run(debug=True)
