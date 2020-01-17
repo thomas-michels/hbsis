@@ -1,9 +1,24 @@
+import sys
+sys.path.append('C:/Users/900164/Documents/hbsis/hbsis/Aula34')
+from model.endereco import Endereco
+
 class Pessoa:
-    id = 0
-    nome = ''
-    sobrenome = ''
-    idade = 0
-    endereco_id = 0
+
+    def __init__(self):
+        self.id = 0
+        self.nome = ''
+        self.sobrenome = ''
+        self.idade = 0
+        self.endereco = Endereco()
+    #
+    # def criar(self, id, nome, sobrenome, idade, endereco_logradouro, endereco_numero, endereco_complemento, endereco_bairro, endereco_cidade, endereco_cep, enderco_id=None):
+    #     self.id = id
+    #     self.nome = nome
+    #     self.idade = idade
+    #     self.sobrenome = sobrenome
+    #     self.endereco.logradouro = endereco_logradouro
+    #     self.endereco.numero = endereco_numero
+
 
     def exportar_txt(self, lista_pessoas):
         # ----- Cria um arquivo e atribui a uma variável 'arquivo'
@@ -13,4 +28,4 @@ class Pessoa:
                 arquivo.write(f"{str(p)}\n")
 
     def __str__(self):
-        return f'{self.id};{self.nome};{self.sobrenome};{self.idade};{self.endereco_id}'
+        return f'{self.id};{self.nome};{self.sobrenome};{self.idade};{self.endereco.id};{self.endereco.logradouro};{self.endereco.numero};{self.endereco.complemento};{self.endereco.bairro};{self.endereco.cidade};{self.endereco.cep}'
