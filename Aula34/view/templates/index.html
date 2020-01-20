@@ -8,41 +8,44 @@
     <title>Pessoas</title>
 </head>
 <body>
-    <div class=".container">
-        <table id="tabela_pessoa_end">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Sobrenome</th>
-                    <th>Idade</th>
-                    <th>Endereco Id</th>
-                    <th>Logradouro</th>
-                    <th>Numero</th>
-                    <th>Complemento</th>
-                    <th>Bairro</th>
-                    <th>Cidade</th>
-                    <th>CEP</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for p in lista %}
-                <tr>
-                    <td>{{ p.id}}</td>
-                    <td>{{ p.nome}}</td>
-                    <td>{{ p.sobrenome}}</td>
-                    <td>{{ p.idade}}</td>
-                    <td>{{ p.endereco.id }}</td>
-                    <td>{{ p.endereco.logradouro}}</td>
-                    <td>{{ p.endereco.numero}}</td>
-                    <td>{{ p.endereco.complemento}}</td>
-                    <td>{{ p.endereco.bairro}}</td>
-                    <td>{{ p.endereco.cidade}}</td>
-                    <td>{{ p.endereco.cep}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+    <div class='container'>
+         <a class='btn-cadastro' href="/">Voltar</a>
+        <div id="tabela">
+            <table id="tabela_pessoa_end">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Sobrenome</th>
+                        <th>Idade</th>
+                        <th>Endereco Id</th>
+                        <th>Logradouro</th>
+                        <th>Numero</th>
+                        <th>Complemento</th>
+                        <th>Bairro</th>
+                        <th>Cidade</th>
+                        <th>CEP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in lista %}
+                    <tr>
+                        <td>{{ p.id}}</td>
+                        <td>{{ p.nome}}</td>
+                        <td>{{ p.sobrenome}}</td>
+                        <td>{{ p.idade}}</td>
+                        <td>{{ p.endereco.id }}</td>
+                        <td>{{ p.endereco.logradouro}}</td>
+                        <td>{{ p.endereco.numero}}</td>
+                        <td>{{ p.endereco.complemento}}</td>
+                        <td>{{ p.endereco.bairro}}</td>
+                        <td>{{ p.endereco.cidade}}</td>
+                        <td>{{ p.endereco.cep}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>
