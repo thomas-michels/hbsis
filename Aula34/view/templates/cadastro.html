@@ -4,32 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/estilo.css">
     <title>Cadastrar</title>
 </head>
 <body>
-    <form action="/cadastro" method="post">
-        <div class="form-group">
-            <label for="">Nome: </label>
-            <input type="text" name="nome" id="nome" class="form-group"/>
-            <br>
-        </div>
-        <div class="form-group">
-            <label for="">Sobrenome: </label>
-            <input type="text" name="sobrenome" id="sobrenome" class="form-group"/>
-            <br>
-        </div>
-        <div class="form-group">
-            <label for="">Idade: </label>
-            <input type="text" name="idade" id="idade" class="form-group"/>
-            <br>
-        </div>
-        <div class="form-group">
-            <label for="">Endereco ID: </label>
-            <input type="text" name="id_endereco" id="id_endereco" class="form-group"/>
-            <br>
-        </div>
-        <input type="submit" value="Cadastrar" class="form-group"/>
+    <div class="container">
+        <form action="/cadastro" method="post">
+            <div class="form-group">
+                <label for="nome">Nome: </label>
+                <input type="text" name="nome" id="nome" class="form-group"/>
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="sobrenome">Sobrenome: </label>
+                <input type="text" name="sobrenome" id="sobrenome" class="form-group"/>
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="idade">Idade: </label>
+                <input type="text" name="idade" id="idade" class="form-group"/>
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="id_endereco">Endereco ID: </label>
+                <input type="text" name="id_endereco" id="id_endereco" class="form-group"/>
+                <br>
+            </div>
+            <div class="descricao">
+                <input type="submit"class='btn-cadastro' href="/" value="Cadastrar">
+            </div>
 
-    </form>
+        </form>
+    </div>
 </body>
 </html>

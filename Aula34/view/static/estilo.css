@@ -2,6 +2,23 @@ body {
     background: black;
     color: white;
 }
+
+.descricao{
+    width: 20%;
+}
+
+form {
+    width: 50%;
+    margin: 2em auto;
+}
+
+input[type='text'], .descricao{
+    font-size: 1em;
+    padding: 1em 1.5em;
+    width: 70%;
+    margin-bottom: 1em;
+    border-radius: 8px;
+}
 #tabela_pessoa_end {
     width: 95%;
     margin: 10em auto;
@@ -14,11 +31,13 @@ body {
     margin: 0.5em 50px;
     padding: 10px;
     text-decoration: none;
+    cursor: pointer;
 }
 .btn-cadastro:hover{
     color:#185201;
     background: #fff;
     border: 1px solid #185201;
+    cursor: pointer;
 }
 
 .container{
