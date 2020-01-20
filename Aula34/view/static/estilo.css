@@ -1,0 +1,27 @@
+body {
+    background: black;
+    color: white;
+}
+#tabela_pessoa_end {
+    width: 95%;
+    margin: 10em auto;
+    border: 3px solid #ff0000;
+}
+
+.btn-cadastro{
+    color:#fff;
+    background: #185201;
+    margin: 0.5em 50px;
+    padding: 10px;
+    text-decoration: none;
+}
+.btn-cadastro:hover{
+    color:#185201;
+    background: #fff;
+    border: 1px solid #185201;
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+}
