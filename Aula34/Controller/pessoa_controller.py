@@ -10,10 +10,6 @@ class PessoaController:
     def listar_todos(self):
         return self.p_db.listar_todos()
 
-    def exportar(self):
-        lpc = self.p_db.listar_todos()
-        self.p.exportar_txt(lpc)
-
     def adicionar(self, nome, sobrenome, idade, id_endereco="NULL"):
         self.p_db.adicionar(nome, sobrenome, idade, id_endereco)
 

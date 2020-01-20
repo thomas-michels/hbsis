@@ -10,10 +10,6 @@ class EnderecoController():
     def listar_todos(self):
         return self.e_db.listar_todos()
 
-    def exportar(self):
-        lec = self.e_db.listar_todos()
-        self.e.exportar_txt(lec)
-
     def adicionar(self, logradouro, numero, complemento, bairro, cidade, cep):
         self.e_db.adicionar(logradouro, numero, complemento, bairro, cidade, cep)
 

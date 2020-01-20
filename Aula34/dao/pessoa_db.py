@@ -3,7 +3,6 @@ import MySQLdb
 import sys
 sys.path.append('C:/Users/900164/Documents/hbsis/hbsis/Aula34')
 from model.pessoa import Pessoa
-from model.endereco import Endereco
 
 class PessoaDb:
     # ----- Configurar a conexão
@@ -43,7 +42,6 @@ class PessoaDb:
         lista_pessoas = []
 
         for p in lista_tuplas:
-            #print(p[5])
             # ----- Criação do objeto da classe pessoa
             p1 = Pessoa()
             # --- pega cada posição da tupla e atribui a uma chave do dicionário
@@ -51,7 +49,6 @@ class PessoaDb:
             p1.nome = p[1]
             p1.sobrenome = p[2]
             p1.idade = p[3]
-            #p1.endereco = Endereco()
             p1.endereco.id = p[5]
             p1.endereco.logradouro = p[6]
             p1.endereco.numero = p[7]
@@ -60,7 +57,7 @@ class PessoaDb:
             p1.endereco.cidade = p[10]
             p1.endereco.cep = p[11]
             lista_pessoas.append(p1)
-            print(p1.endereco)
+
         return lista_pessoas
 
 if __name__ == '__main__':
