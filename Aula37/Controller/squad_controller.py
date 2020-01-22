@@ -44,6 +44,9 @@ class SquadController():
         squad_class = self.conversor(squad)
         return squad_class
 
+    def alterar(self, id, nome, descricao, numeroPessoas, linguagemBackEnd, frameworkFrontEnd):
+        self.squad_db.alterar(id, nome, descricao, numeroPessoas, linguagemBackEnd, frameworkFrontEnd)
+
     def listar_todos(self):
 
         lista_tuplas = self.squad_db.listar_todos()
