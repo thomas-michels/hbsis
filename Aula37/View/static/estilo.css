@@ -1,0 +1,33 @@
+body {
+    background: gray;
+}
+
+.container {
+    width: 80%;
+    height: 550px;
+    margin: 100px 150px;
+    background: black;
+}
+
+.display {
+    margin-left: 425px;
+    position: center;
+    width: 300px;
+    background: greenyellow;
+}
+
+.btn{
+    width: 100px;
+    color:#fff;
+    background: #185201;
+    margin-left: 100px;
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.btn:hover{
+    color:#185201;
+    background: #fff;
+    border: 1px solid #185201;
+    cursor: pointer;
+}
