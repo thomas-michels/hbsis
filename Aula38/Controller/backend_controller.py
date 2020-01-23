@@ -3,75 +3,58 @@ sys.path.append('C:/Users/900164/Documents/hbsis/hbsis/Aula38')
 from DAO.backend_db import BackendDB
 from Model.linguagem_back_end import LinguagemBackEnd
 
-class SquadController():
-    squad_db = SquadDB()
+class BackendController():
+    backend_db = BackendDB()
 
     def conversor(self, lista_tuplas):
 
-        lista_squads = []
+        lista_backends = []
 
         if type(lista_tuplas[0]) == tuple:
-            for equipe in lista_tuplas:
-                equip = Squad()
-                equip.id = equipe[0]
-                equip.nome = equipe[1]
-                equip.descricao = equipe[2]
-                equip.numeroPessoas = equipe[3]
+            for linguagem in lista_tuplas:
+                lingua = LinguagemBackEnd()
 
-                equip.sgbds.id = equipe[7]
-                equip.sgbds.nome = equipe[8]
-                equip.linguagemBackEnd.id = equipe[9]
-                equip.linguagemBackEnd.nome = equipe[10]
-                equip.frameworkFrontEnd.id = equipe[11]
-                equip.frameworkFrontEnd.nome = equipe[12]
+                lingua.id = linguagem[0]
+                lingua.nome = linguagem[1]
 
-                lista_squads.append(equip)
+                lista_backends.append(lingua)
 
         else:
-            equip = Squad()
-            equip.id = lista_tuplas[0]
-            equip.nome = lista_tuplas[1]
-            equip.descricao = lista_tuplas[2]
-            equip.numeroPessoas = lista_tuplas[3]
+            lingua = LinguagemBackEnd()
 
-            equip.sgbds.id = lista_tuplas[7]
-            equip.sgbds.nome = lista_tuplas[8]
-            equip.linguagemBackEnd.id = lista_tuplas[9]
-            equip.linguagemBackEnd.nome = lista_tuplas[10]
-            equip.frameworkFrontEnd.id = lista_tuplas[11]
-            equip.frameworkFrontEnd.nome = lista_tuplas[12]
-            lista_squads = equip
+            lingua.id = lista_tuplas[0]
+            lingua.nome = lista_tuplas[1]
+            lista_backends = lingua
 
-        return lista_squads
+        return lista_backends
 
-    def adicionar(self, squad:Squad):
-        nome = squad.nome
-        descricao = squad.descricao
-        numeroPessoas = squad.numeroPessoas
-        linguagemBackEnd = squad.linguagemBackEnd
-        frameworkFrontEnd = squad.frameworkFrontEnd
-        self.squad_db.adicionar(nome, descricao, numeroPessoas, linguagemBackEnd, frameworkFrontEnd)
+    def adicionar(self, backend:LinguagemBackEnd):
+        nome = backend.nome
+        self.backend_db.adicionar(nome)
 
     def deletar(self, id):
-        self.squad_db.deletar(id)
+        self.backend_db.deletar(id)
 
     def buscar(self, id):
-        squad = self.squad_db.buscar(id)
-        squad_class = self.conversor(squad)
-        return squad_class
+        backend = self.backend_db.buscar(id)
+        backend_class = self.conversor(backend)
+        return backend_class
 
-    def alterar(self, squad:Squad):
-        id = squad.id
-        nome = squad.nome
-        descricao = squad.descricao
-        numeroPessoas = squad.numeroPessoas
-        linguagemBackEnd = squad.linguagemBackEnd
-        frameworkFrontEnd = squad.frameworkFrontEnd
-        self.squad_db.alterar(id, nome, descricao, numeroPessoas, linguagemBackEnd, frameworkFrontEnd)
+    def alterar(self, backend:LinguagemBackEnd):
+        id = backend.id
+        nome = backend.nome
+
+        self.backend_db.alterar(id, nome)
 
     def listar_todos(self):
 
-        lista_tuplas = self.squad_db.listar_todos()
-        objetoSquad = self.conversor(lista_tuplas)
+        lista_tuplas = self.backend_db.listar_todos()
+        objetosBackend = self.conversor(lista_tuplas)
 
-        return objetoSquad
+        return objetosBackend
+
+if __name__ == '__main__':
+    bc = BackendController()
+    a = bc.listar_todos()
+    for i in a:
+        print(i)
