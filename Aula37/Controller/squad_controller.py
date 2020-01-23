@@ -1,5 +1,5 @@
 import sys
-sys.path.append('C:/Users/900164/Documents/hbsis/hbsis/Aula37')
+sys.path.append('C:/Users/900164/Downloads/hbsis-master/Aula37')
 from Model.squad import Squad
 from DAO.squad_db import SquadDB
 
@@ -33,7 +33,13 @@ class SquadController():
 
         return lista_squads
 
-    def adicionar(self, nome, descricao, numeroPessoas, linguagemBackEnd, frameworkFrontEnd):
+    def adicionar(self, squad:Squad):
+        nome = squad.nome
+        print("add")
+        descricao = squad.descricao
+        numeroPessoas = squad.numeroPessoas
+        linguagemBackEnd = squad.linguagemBackEnd
+        frameworkFrontEnd = squad.frameworkFrontEnd
         self.squad_db.adicionar(nome, descricao, numeroPessoas, linguagemBackEnd, frameworkFrontEnd)
 
     def deletar(self, id):
@@ -44,7 +50,14 @@ class SquadController():
         squad_class = self.conversor(squad)
         return squad_class
 
-    def alterar(self, id, nome, descricao, numeroPessoas, linguagemBackEnd, frameworkFrontEnd):
+    def alterar(self, squad:Squad):
+        id = squad.id
+        nome = squad.nome
+        print("alterar")
+        descricao = squad.descricao
+        numeroPessoas = squad.numeroPessoas
+        linguagemBackEnd = squad.linguagemBackEnd
+        frameworkFrontEnd = squad.frameworkFrontEnd
         self.squad_db.alterar(id, nome, descricao, numeroPessoas, linguagemBackEnd, frameworkFrontEnd)
 
     def listar_todos(self):
