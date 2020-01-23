@@ -1,5 +1,5 @@
 import sys
-sys.path.append('C:/Users/900164/Downloads/hbsis-master/Aula37')
+sys.path.append('C:/Users/900164/Documents/hbsis/hbsis/Aula37')
 from Controller.squad_controller import SquadController
 from flask import Flask, redirect, render_template, request
 from Model.squad import Squad
