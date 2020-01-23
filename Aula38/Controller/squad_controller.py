@@ -2,9 +2,7 @@ import sys
 sys.path.append('C:/Users/900164/Documents/hbsis/hbsis/Aula38')
 from Model.squad import Squad
 from DAO.squad_db import SquadDB
-from DAO.backend_db import BackendDB
-from DAO.frontend_db import FrontendDB
-from DAO.sgbds_db import SgbdsDB
+
 
 class SquadController():
     squad_db = SquadDB()
