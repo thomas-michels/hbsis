@@ -30,7 +30,8 @@ class BackendController():
 
     def adicionar(self, backend:LinguagemBackEnd):
         nome = backend.nome
-        self.backend_db.adicionar(nome)
+        id = self.backend_db.adicionar(nome)
+        return id
 
     def deletar(self, id):
         self.backend_db.deletar(id)

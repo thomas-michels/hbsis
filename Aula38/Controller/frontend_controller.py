@@ -30,7 +30,8 @@ class FrontendController():
 
     def adicionar(self, frontend:FrameworkFrontEnd):
         nome = frontend.nome
-        self.frontend_db.adicionar(nome)
+        id = self.frontend_db.adicionar(nome)
+        return id
 
     def deletar(self, id):
         self.frontend_db.deletar(id)

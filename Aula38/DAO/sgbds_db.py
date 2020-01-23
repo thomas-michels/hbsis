@@ -21,6 +21,8 @@ class SgbdsDB():
         comando_sql_insert = f"INSERT INTO SGBDS (nome) values ('{nome}')"
         self.cursor.execute((comando_sql_insert))
         self.conexao.commit()
+        id = self.cursor.lastrowid
+        return id
 
     def buscar(self, id):
 
@@ -38,3 +40,7 @@ class SgbdsDB():
         comando_sql_delete = f"DELETE FROM SGBDS WHERE id= {id}"
         self.cursor.execute(comando_sql_delete)
         self.conexao.commit()
+
+if __name__ == '__main__':
+    s_db = SgbdsDB()
+    print(s_db.adicionar("aa"))

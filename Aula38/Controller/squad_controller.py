@@ -1,11 +1,19 @@
 import sys
 sys.path.append('C:/Users/900164/Documents/hbsis/hbsis/Aula38')
 from Model.squad import Squad
+from Model.linguagem_back_end import LinguagemBackEnd
+from Model.framework_front_end import FrameworkFrontEnd
+from Model.sgbds import Sgbds
 from DAO.squad_db import SquadDB
-
+from Controller.backend_controller import BackendController
+from Controller.frontend_controller import FrontendController
+from Controller.sgbds_controller import SgbdsController
 
 class SquadController():
     squad_db = SquadDB()
+    backend_c = BackendController()
+    frontend_c = FrontendController()
+    sgbds_c = SgbdsController()
 
     def conversor(self, lista_tuplas):
 
@@ -46,29 +54,107 @@ class SquadController():
         return lista_squads
 
     def adicionar(self, squad:Squad):
+
+        backend = LinguagemBackEnd()
+        backend.nome = squad.linguagemBackEnd.nome
+        if squad.linguagemBackEnd.id == 0:
+            squad.linguagemBackEnd.id = self.backend_c.adicionar(backend)
+
+        else:
+            backend_class = self.backend_c.buscar(squad.linguagemBackEnd.id)
+            squad.linguagemBackEnd.nome = backend_class.nome
+
+        frontend = FrameworkFrontEnd()
+        frontend.nome = squad.frameworkFrontEnd.nome
+        if squad.frameworkFrontEnd.id == 0:
+            squad.frameworkFrontEnd.id = self.frontend_c.adicionar(frontend)
+
+        else:
+            frontend_class = self.frontend_c.buscar(squad.frameworkFrontEnd.id)
+            squad.frameworkFrontEnd.nome = frontend_class.nome
+
+        sgbds = Sgbds()
+        sgbds.nome = squad.sgbds.nome
+        if squad.sgbds.id == 0:
+            squad.sgbds.id = self.sgbds_c.adicionar(sgbds)
+
+        else:
+            sgbds_class = self.sgbds_c.buscar(squad.sgbds.id)
+            squad.sgbds.nome = sgbds_class.nome
+
         nome = squad.nome
         descricao = squad.descricao
         numeroPessoas = squad.numeroPessoas
-        linguagemBackEnd = squad.linguagemBackEnd
-        frameworkFrontEnd = squad.frameworkFrontEnd
-        self.squad_db.adicionar(nome, descricao, numeroPessoas, linguagemBackEnd, frameworkFrontEnd)
+        linguagemBackEnd = int(squad.linguagemBackEnd.id)
+        frameworkFrontEnd = int(squad.frameworkFrontEnd.id)
+        sgbd = int(squad.sgbds.id)
+
+        self.squad_db.adicionar(nome, descricao, numeroPessoas, linguagemBackEnd, frameworkFrontEnd, sgbd)
 
     def deletar(self, id):
         self.squad_db.deletar(id)
 
     def buscar(self, id):
-        squad = self.squad_db.buscar(id)
+        squad_tuple = self.squad_db.buscar(id)
+        squad = Squad()
+        squad.id = squad_tuple[0]
+        squad.nome = squad_tuple[1]
+        squad.descricao = squad_tuple[2]
+        squad.linguagemBackEnd.id = squad_tuple[3]
+        squad.frameworkFrontEnd.id = squad_tuple[4]
+        squad.sgbds.id = squad_tuple[5]
+
+        id_frontend = squad.frameworkFrontEnd.id
+        squad.frameworkFrontEnd = self.frontend_c.buscar(id_frontend)
+
+        id_backend = squad.linguagemBackEnd.id
+        squad.linguagemBackEnd = self.backend_c.buscar(id_backend)
+
+        id_sgbd = squad.sgbds.id
+        squad.sgbds = self.sgbds_c.buscar(id_sgbd)
+
+        print(squad)
         squad_class = self.conversor(squad)
         return squad_class
 
     def alterar(self, squad:Squad):
+
+        backend = LinguagemBackEnd()
+        backend.nome = squad.linguagemBackEnd.nome
+        backend.id = squad.linguagemBackEnd.id
+
+        if backend.nome == "":
+            backend_class = self.backend_c.buscar(backend.id)
+            backend.nome = backend_class.nome
+
+        self.backend_c.alterar(backend)
+
+        frontend = FrameworkFrontEnd()
+        frontend.nome = squad.frameworkFrontEnd.nome
+        frontend.id = squad.frameworkFrontEnd.id
+
+        if frontend.nome == "":
+            frontend_class = self.frontend_c.buscar(squad.frameworkFrontEnd.id)
+            frontend.nome = frontend_class.nome
+
+        self.frontend_c.alterar(frontend)
+
+        sgbds = Sgbds()
+        sgbds.nome = squad.sgbds.nome
+        sgbds.id = squad.sgbds.id
+
+        if sgbds.nome == "":
+            sgbds_class = self.sgbds_c.buscar(squad.sgbds.id)
+            sgbds.nome = sgbds_class.nome
+
+        self.sgbds_c.alterar(sgbds)
+
         id = squad.id
         nome = squad.nome
         descricao = squad.descricao
         numeroPessoas = squad.numeroPessoas
-        linguagemBackEnd = squad.linguagemBackEnd
-        frameworkFrontEnd = squad.frameworkFrontEnd
-        self.squad_db.alterar(id, nome, descricao, numeroPessoas, linguagemBackEnd, frameworkFrontEnd)
+
+        self.squad_db.alterar(id, nome, descricao, numeroPessoas, backend.id, frontend.id, sgbds.id)
 
     def listar_todos(self):
 
@@ -79,6 +165,19 @@ class SquadController():
 
 if __name__ == '__main__':
     sc = SquadController()
+    squad = Squad()
+    squad.id = 8
+    squad.nome = "TESTE alterar console"
+    squad.descricao = "TESTE CONSOLE"
+    squad.numeroPessoas = 5
+    squad.linguagemBackEnd.id = 1
+    squad.frameworkFrontEnd.id = 2
+    squad.sgbds.id = 1
+    print(squad)
+    #sc.alterar(squad)
+    #sc.deletar(10)
+    b = sc.buscar(5)
+    print(b)
     a = sc.listar_todos()
-    for i in a:
-        print(i)
+    #for i in a:
+    #    print(i)

@@ -30,7 +30,8 @@ class SgbdsController():
 
     def adicionar(self, sgbd:Sgbds):
         nome = sgbd.nome
-        self.sgbds_db.adicionar(nome)
+        id = self.sgbds_db.adicionar(nome)
+        return id
 
     def deletar(self, id):
         self.sgbds_db.deletar(id)
@@ -44,7 +45,7 @@ class SgbdsController():
         id = sgbd.id
         nome = sgbd.nome
 
-        self.frontend_db.alterar(id, nome)
+        self.sgbds_db.alterar(id, nome)
 
     def listar_todos(self):
 

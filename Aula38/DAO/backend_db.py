@@ -21,6 +21,8 @@ class BackendDB():
         comando_sql_insert = f"INSERT INTO LinguagensBackEnd (nome) values ('{nome}')"
         self.cursor.execute(comando_sql_insert)
         self.conexao.commit()
+        id = self.cursor.lastrowid
+        return id
 
     def buscar(self, id):
 
@@ -30,7 +32,7 @@ class BackendDB():
         return resultado
 
     def alterar(self, id, nome):
-        comando_alterar = f"UPDATE SGBDS SET LinguagensBackEnd = '{nome}' where id = {id};"
+        comando_alterar = f"UPDATE LinguagensBackEnd SET nome = '{nome}' where id = {id};"
         self.cursor.execute(comando_alterar)
         self.conexao.commit()
 

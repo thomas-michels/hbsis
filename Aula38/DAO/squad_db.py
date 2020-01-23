@@ -33,8 +33,8 @@ class SquadDB():
         resultado = self.cursor.fetchone()
         return resultado
 
-    def alterar(self, id, nome, descricao, numero_pessoas, linguaguem_back_end, framework_front_end):
-        comando_alterar = f"update Thomas_Squad SET nome = '{nome}', descricao = '{descricao}', numero_pessoas = {numero_pessoas}, linguagem_back_end = '{linguaguem_back_end}', framework_front_end = '{framework_front_end}' where id = {id}"
+    def alterar(self, id, nome, descricao, numero_pessoas, id_linguaguem_back_end, id_framework_front_end, id_sgbds):
+        comando_alterar = f"update Squad SET nome = '{nome}', descricao = '{descricao}', numero_pessoas = {numero_pessoas}, id_linguagem_back_end = {int(id_linguaguem_back_end)}, id_framework_front_end = {int(id_framework_front_end)}, id_sgbds = {int(id_sgbds)} where id = {int(id)}"
         self.cursor.execute(comando_alterar)
         self.conexao.commit()
 

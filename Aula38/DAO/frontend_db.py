@@ -21,6 +21,8 @@ class FrontendDB():
         comando_sql_insert = f"INSERT INTO FrameworkFrontEnd (nome) values ('{nome}')"
         self.cursor.execute((comando_sql_insert))
         self.conexao.commit()
+        id = self.cursor.lastrowid
+        return id
 
     def buscar(self, id):
 
@@ -30,7 +32,7 @@ class FrontendDB():
         return resultado
 
     def alterar(self, id, nome):
-        comando_alterar = f"UPDATE SGBDS SET FrameworkFrontEnd = '{nome}' where id = {id};"
+        comando_alterar = f"UPDATE FrameworkFrontEnd SET nome = '{nome}' where id = {id};"
         self.cursor.execute(comando_alterar)
         self.conexao.commit()
 
