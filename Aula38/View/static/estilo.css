@@ -1,0 +1,86 @@
+body {
+    background: gray;
+    color: white;
+}
+
+.container {
+    width: 80%;
+    height: 550px;
+    margin: 100px 150px;
+    background: black;
+}
+
+.display {
+    margin-left: 425px;
+    position: center;
+    width: 300px;
+    background: greenyellow;
+}
+
+.display2 {
+    margin-left: 235px;
+    position: center;
+    width: 750px;
+}
+
+.btn{
+    width: 100px;
+    color:#fff;
+    background: #185201;
+    margin-left: 100px;
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.btn:hover{
+    color:#185201;
+    background: #fff;
+    border: 1px solid #185201;
+    cursor: pointer;
+}
+
+.tabela{
+    width: 95%;
+    margin: 3em auto 2em;
+    border-collapse: collapse;
+    border-radius: 1em;
+    background: #fff;
+    border-radius: 1em;
+}
+
+#tabela-squads thead tr th{
+    width: 700px;
+    background: skyblue;
+    padding: 0.8em;
+    text-align: left;
+    color: #000;
+    font-weight: bold;
+    
+}
+#tabela-squads tbody tr td{
+    padding: 0.3em;
+    color:#000;
+}
+
+.editar{
+    color:#fff;
+    padding: 0.1em 1.05em;
+    text-decoration: none;
+    background:#f8d700;
+}
+.editar:hover{
+    color:#f8d700;
+    background:#fff;
+    border:1px solid #f8d700;
+}
+.excluir{
+    padding: 0.1em 0.8em;
+    text-decoration: none;
+    color:#fff;
+    background:#f00;
+}
+.excluir:hover{
+    color:#f00;
+    background:#fff;
+    border: 1px solid #f00;
+}

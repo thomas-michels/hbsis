@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Squads</title>
+    <link rel="stylesheet" href="../static/estilo.css">
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="btn">Home</a>
+        <div class="display2">
+            <div class="tabela">
+                <table id='tabela-squads'>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Descricao</th>
+                            <th>Numero de Pessoas</th>
+                            <th>Linguagem BackEnd</th>
+                            <th>Framework FrontEnd</th>
+                            <th>Configs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for s in lista_squads%}
+                        <tr>
+                            <td>{{ s.nome }}</td>
+                            <td>{{ s.descricao }}</td>
+                            <td>{{ s.numeroPessoas }}</td>
+                            <td>{{ s.linguaguemBackEnd }}</td>
+                            <td>{{ s.frameworkFrontEnd }}</td>
+                            <td>
+                                <a href="/cadastrar?id={{s.id}}" class="editar">Editar</a>
+                                <a href="/excluir?id={{ s.id }}" class="excluir">Excluir</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
