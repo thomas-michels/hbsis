@@ -18,38 +18,42 @@ class SquadController():
     def conversor(self, lista_tuplas):
 
         lista_squads = []
+        if not lista_tuplas.nome:
+            if type(lista_tuplas[0]) == tuple:
+                for equipe in lista_tuplas:
+                    equip = Squad()
+                    equip.id = equipe[0]
+                    equip.nome = equipe[1]
+                    equip.descricao = equipe[2]
+                    equip.numeroPessoas = equipe[3]
 
-        if type(lista_tuplas[0]) == tuple:
-            for equipe in lista_tuplas:
+                    equip.sgbds.id = equipe[7]
+                    equip.sgbds.nome = equipe[8]
+                    equip.linguagemBackEnd.id = equipe[9]
+                    equip.linguagemBackEnd.nome = equipe[10]
+                    equip.frameworkFrontEnd.id = equipe[11]
+                    equip.frameworkFrontEnd.nome = equipe[12]
+
+                    lista_squads.append(equip)
+
+            else:
                 equip = Squad()
-                equip.id = equipe[0]
-                equip.nome = equipe[1]
-                equip.descricao = equipe[2]
-                equip.numeroPessoas = equipe[3]
+                equip.id = lista_tuplas[0]
+                equip.nome = lista_tuplas[1]
+                equip.descricao = lista_tuplas[2]
+                equip.numeroPessoas = lista_tuplas[3]
 
-                equip.sgbds.id = equipe[7]
-                equip.sgbds.nome = equipe[8]
-                equip.linguagemBackEnd.id = equipe[9]
-                equip.linguagemBackEnd.nome = equipe[10]
-                equip.frameworkFrontEnd.id = equipe[11]
-                equip.frameworkFrontEnd.nome = equipe[12]
-
-                lista_squads.append(equip)
+                equip.sgbds.id = lista_tuplas[7]
+                equip.sgbds.nome = lista_tuplas[8]
+                equip.linguagemBackEnd.id = lista_tuplas[9]
+                equip.linguagemBackEnd.nome = lista_tuplas[10]
+                equip.frameworkFrontEnd.id = lista_tuplas[11]
+                equip.frameworkFrontEnd.nome = lista_tuplas[12]
+                lista_squads = equip
+                return lista_squads
 
         else:
-            equip = Squad()
-            equip.id = lista_tuplas[0]
-            equip.nome = lista_tuplas[1]
-            equip.descricao = lista_tuplas[2]
-            equip.numeroPessoas = lista_tuplas[3]
-
-            equip.sgbds.id = lista_tuplas[7]
-            equip.sgbds.nome = lista_tuplas[8]
-            equip.linguagemBackEnd.id = lista_tuplas[9]
-            equip.linguagemBackEnd.nome = lista_tuplas[10]
-            equip.frameworkFrontEnd.id = lista_tuplas[11]
-            equip.frameworkFrontEnd.nome = lista_tuplas[12]
-            lista_squads = equip
+            return lista_tuplas
 
         return lista_squads
 
@@ -100,9 +104,10 @@ class SquadController():
         squad.id = squad_tuple[0]
         squad.nome = squad_tuple[1]
         squad.descricao = squad_tuple[2]
-        squad.linguagemBackEnd.id = squad_tuple[3]
-        squad.frameworkFrontEnd.id = squad_tuple[4]
-        squad.sgbds.id = squad_tuple[5]
+        squad.numeroPessoas = squad_tuple[3]
+        squad.linguagemBackEnd.id = squad_tuple[4]
+        squad.frameworkFrontEnd.id = squad_tuple[5]
+        squad.sgbds.id = squad_tuple[6]
 
         id_frontend = squad.frameworkFrontEnd.id
         squad.frameworkFrontEnd = self.frontend_c.buscar(id_frontend)
@@ -113,7 +118,6 @@ class SquadController():
         id_sgbd = squad.sgbds.id
         squad.sgbds = self.sgbds_c.buscar(id_sgbd)
 
-        print(squad)
         squad_class = self.conversor(squad)
         return squad_class
 
@@ -173,11 +177,10 @@ if __name__ == '__main__':
     squad.linguagemBackEnd.id = 1
     squad.frameworkFrontEnd.id = 2
     squad.sgbds.id = 1
-    print(squad)
     #sc.alterar(squad)
     #sc.deletar(10)
     b = sc.buscar(5)
     print(b)
-    a = sc.listar_todos()
+    #a = sc.listar_todos()
     #for i in a:
     #    print(i)
