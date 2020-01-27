@@ -8,6 +8,7 @@
 <body>
     <div class="container">
         <div class="display2">
+            <a href="/" class="btn">Home</a>
             <form action="/salvar" method="post">
                 <input type="hidden" name="id" id="id" value="{{squad.id}}"> <br/>
                 <div class="form-group">
@@ -26,13 +27,33 @@
                     <br>
                 </div>
                 <div class="form-group">
-                    <label for="linguagemBackEnd">Linguaguem BackEnd: </label>
-                    <input type="text" name="linguagemBackEnd" id="linguagemBackEnd" class="form-group"/>
+                    <label for="linguagemBackEnd">ID Linguaguem BackEnd: </label>
+                    <input type="text" name="id_linguagemBackEnd" id="id_linguagemBackEnd" class="form-group"/>
                     <br>
                 </div>
                 <div class="form-group">
-                    <label for="frameworkFrontEnd">Framework FrontEnd: </label>
-                    <input type="text" name="frameworkFrontEnd" id="frameworkFrontEnd" class="form-group"/>
+                    <label for="linguagemBackEnd">Nome Linguaguem BackEnd: </label>
+                    <input type="text" name="nome_linguagemBackEnd" id="nome_linguagemBackEnd" class="form-group"/>
+                    <br>
+                </div>
+                <div class="form-group">
+                    <label for="frameworkFrontEnd">ID Framework FrontEnd: </label>
+                    <input type="text" name="id_frameworkFrontEnd" id="id_frameworkFrontEnd" class="form-group"/>
+                    <br>
+                </div>
+                <div class="form-group">
+                    <label for="frameworkFrontEnd">Nome Framework FrontEnd: </label>
+                    <input type="text" name="nome_frameworkFrontEnd" id="nome_frameworkFrontEnd" class="form-group"/>
+                    <br>
+                </div>
+                <div class="form-group">
+                    <label for="frameworkFrontEnd">ID sgbds: </label>
+                    <input type="text" name="id_sgbds" id="id_sgbds" class="form-group"/>
+                    <br>
+                </div>
+                <div class="form-group">
+                    <label for="frameworkFrontEnd">Nome sgbds: </label>
+                    <input type="text" name="nome_sgbds" id="nome_sgbds" class="form-group"/>
                     <br>
                 </div>
                 <input type="submit"class='btn' href="/salvar" value="Cadastrar">    

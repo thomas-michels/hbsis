@@ -16,8 +16,12 @@
                             <th>Nome</th>
                             <th>Descricao</th>
                             <th>Numero de Pessoas</th>
-                            <th>Linguagem BackEnd</th>
-                            <th>Framework FrontEnd</th>
+                            <th>Id linguagem BackEnd</th>
+                            <th>Nome linguagem BackEnd</th>
+                            <th>Id framework FrontEnd</th>
+                            <th>Nome framework FrontEnd</th>
+                            <th>Id SGBDS</th>
+                            <th>Nome SGBDS</th>
                             <th>Configs</th>
                         </tr>
                     </thead>
@@ -27,8 +31,12 @@
                             <td>{{ s.nome }}</td>
                             <td>{{ s.descricao }}</td>
                             <td>{{ s.numeroPessoas }}</td>
-                            <td>{{ s.linguaguemBackEnd }}</td>
-                            <td>{{ s.frameworkFrontEnd }}</td>
+                            <td>{{ s.linguagemBackEnd.id }}</td>
+                            <td>{{ s.linguagemBackEnd.nome }}</td>
+                            <td>{{ s.frameworkFrontEnd.id }}</td>
+                            <td>{{ s.frameworkFrontEnd.nome }}</td>
+                            <td>{{ s.sgbds.id }}</td>
+                            <td>{{ s.sgbds.nome }}</td>
                             <td>
                                 <a href="/cadastrar?id={{s.id}}" class="editar">Editar</a>
                                 <a href="/excluir?id={{ s.id }}" class="excluir">Excluir</a>

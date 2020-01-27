@@ -18,7 +18,13 @@ class SquadController():
     def conversor(self, lista_tuplas):
 
         lista_squads = []
-        if not lista_tuplas.nome:
+        try:
+            if not lista_tuplas.nome:
+                pass
+            else:
+                return lista_tuplas
+            
+        except AttributeError:
             if type(lista_tuplas[0]) == tuple:
                 for equipe in lista_tuplas:
                     equip = Squad()
@@ -35,6 +41,7 @@ class SquadController():
                     equip.frameworkFrontEnd.nome = equipe[12]
 
                     lista_squads.append(equip)
+                return lista_squads
 
             else:
                 equip = Squad()
@@ -52,16 +59,11 @@ class SquadController():
                 lista_squads = equip
                 return lista_squads
 
-        else:
-            return lista_tuplas
-
-        return lista_squads
-
     def adicionar(self, squad:Squad):
 
         backend = LinguagemBackEnd()
         backend.nome = squad.linguagemBackEnd.nome
-        if squad.linguagemBackEnd.id == 0:
+        if squad.linguagemBackEnd.id == 0 or squad.linguagemBackEnd.id is None:
             squad.linguagemBackEnd.id = self.backend_c.adicionar(backend)
 
         else:
@@ -70,7 +72,7 @@ class SquadController():
 
         frontend = FrameworkFrontEnd()
         frontend.nome = squad.frameworkFrontEnd.nome
-        if squad.frameworkFrontEnd.id == 0:
+        if squad.frameworkFrontEnd.id == 0 or squad.frameworkFrontEnd.id is None:
             squad.frameworkFrontEnd.id = self.frontend_c.adicionar(frontend)
 
         else:
@@ -79,7 +81,7 @@ class SquadController():
 
         sgbds = Sgbds()
         sgbds.nome = squad.sgbds.nome
-        if squad.sgbds.id == 0:
+        if squad.sgbds.id == 0 or squad.sgbds.id is None:
             squad.sgbds.id = self.sgbds_c.adicionar(sgbds)
 
         else:
@@ -181,6 +183,6 @@ if __name__ == '__main__':
     #sc.deletar(10)
     b = sc.buscar(5)
     print(b)
-    #a = sc.listar_todos()
-    #for i in a:
-    #    print(i)
+    a = sc.listar_todos()
+    for i in a:
+        print(i)

@@ -7,33 +7,38 @@ body {
     width: 80%;
     height: 550px;
     margin: 100px 150px;
-    background: black;
 }
 
 .display {
-    margin-left: 425px;
+    margin-left: 335px;
     position: center;
-    width: 300px;
-    background: greenyellow;
+    width: 500px;
 }
 
 .display2 {
+    margin-left: 135px;
+    position: center;
+    width: 950px;
+}
+
+.display3 {
     margin-left: 235px;
     position: center;
-    width: 750px;
+    width: 450px;
 }
 
 .btn{
-    width: 100px;
+    width: 200px;
     color:#fff;
-    background: #185201;
+    background: #0488bd;
+    margin-top: 40px;
     margin-left: 100px;
     padding: 10px;
     text-decoration: none;
     cursor: pointer;
 }
 .btn:hover{
-    color:#185201;
+    color :#0488bd;;
     background: #fff;
     border: 1px solid #185201;
     cursor: pointer;

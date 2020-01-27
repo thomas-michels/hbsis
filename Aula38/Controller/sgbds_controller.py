@@ -1,5 +1,5 @@
 import sys
-sys.path.append('C:/Users/900164/Documents/hbsis/hbsis/Aula38')
+sys.path.append('C:/Github/TrabalhosPython/Aula38')
 from DAO.sgbds_db import SgbdsDB
 from Model.sgbds import Sgbds
 
