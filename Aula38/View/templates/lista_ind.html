@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Squads</title>
+    <link rel="stylesheet" href="../static/estilo.css">
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="btn">Home</a>
+        <a href={{caminho}} class="btn">{{ nome_botao }}</a>
+        <div class="display">
+            <div class="tabela">
+                <table id='tabela-squads'>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>configs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for s in lista%}
+                        <tr>
+                            <td>{{ s.id }}</td>
+                            <td>{{ s.nome }}</td>
+                            <td>
+                                <a href="{{link1}}?id={{s.id}}" class="editar">Editar</a>
+                                <a href="{{link2}}?id={{ s.id }}" class="excluir">Excluir</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

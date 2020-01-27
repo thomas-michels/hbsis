@@ -10,50 +10,63 @@
         <div class="display2">
             <a href="/" class="btn">Home</a>
             <form action="/salvar" method="post">
-                <input type="hidden" name="id" id="id" value="{{squad.id}}"> <br/>
+                <input type="hidden" name="id" id="id" value="{{squad.id}}">
+                <br/>
                 <div class="form-group">
                     <label for="nome">Nome: </label>
-                    <input type="text" name="nome" id="nome" class="form-group"/>
+                    <input type="text" name="nome" id="nome" class="form-group" value={{squad.nome}}>
                     <br>
                 </div>
                 <div class="form-group">
                     <label for="descricao">Descricao: </label>
-                    <input type="text" name="descricao" id="descricao" class="form-group"/>
+                    <input type="text" name="descricao" id="descricao" class="form-group" value="{{squad.descricao}}"/>
                     <br>
                 </div>
                 <div class="form-group">
-                    <label for="numeroPessoas">Numero Pessoas: </label>
-                    <input type="text" name="numeroPessoas" id="numeroPessoas" class="form-group"/>
+                    <label for="numeroPessoas">Numero Pessoas</label>
+                    <input type="text" name="numeroPessoas" id="numeroPessoas" class="form-group" value="{{squad.numeroPessoas}}"/>
                     <br>
                 </div>
                 <div class="form-group">
-                    <label for="id_linguagemBackEnd">ID Linguaguem BackEnd: </label>
-                    <input type="text" name="id_linguagemBackEnd" id="id_linguagemBackEnd" class="form-group"/>
+                    {% if squad.id == 0%}
+                        <input type="hidden" name="id_linguagemBackEnd" id="id_linguagemBackEnd" class="form-group"/>
+                    {% else%}
+                        <label for="id_linguagemBackEnd">ID Linguagem BackEnd</label>
+                        <input type="text" name="id_linguagemBackEnd" id="id_linguagemBackEnd" class="form-group" value="{{squad.linguagemBackEnd.id}}"/>
+                    {% endif%}
                     <br>
                 </div>
                 <div class="form-group">
                     <label for="nome_linguagemBackEnd">Nome Linguaguem BackEnd: </label>
-                    <input type="text" name="nome_linguagemBackEnd" id="nome_linguagemBackEnd" class="form-group"/>
+                    <input type="text" name="nome_linguagemBackEnd" id="nome_linguagemBackEnd" class="form-group" value="{{squad.linguagemBackEnd.nome}}"/>
                     <br>
                 </div>
                 <div class="form-group">
-                    <label for="id_frameworkFrontEnd">ID Framework FrontEnd: </label>
-                    <input type="text" name="id_frameworkFrontEnd" id="id_frameworkFrontEnd" class="form-group"/>
+                    {% if squad.id == 0%}
+                        <input type="hidden" name="id_frameworkFrontEnd" id="id_frameworkFrontEnd" class="form-group"/>
+                    {% else%}
+                        <label for="id_frameworkFrontEnd">Framework FrontEnd</label>
+                        <input type="text" name="id_frameworkFrontEnd" id="id_frameworkFrontEnd" class="form-group" value="{{squad.frameworkFrontEnd.id}}"/>
+                    {% endif%}
                     <br>
                 </div>
                 <div class="form-group">
                     <label for="nome_frameworkFrontEnd">Nome Framework FrontEnd: </label>
-                    <input type="text" name="nome_frameworkFrontEnd" id="nome_frameworkFrontEnd" class="form-group"/>
+                    <input type="text" name="nome_frameworkFrontEnd" id="nome_frameworkFrontEnd" class="form-group" value="{{squad.frameworkFrontEnd.nome}}"/>
                     <br>
                 </div>
                 <div class="form-group">
-                    <label for="id_sgbds">ID sgbds: </label>
-                    <input type="text" name="id_sgbds" id="id_sgbds" class="form-group"/>
+                    {% if squad.id == 0%}
+                        <input type="hidden" name="id_sgbds" id="id_sgbds" class="form-group"/>
+                    {% else%}
+                        <label for="id_sgbds">ID SGBD</label>
+                        <input type="text" name="id_sgbds" id="id_sgbds" class="form-group" value="{{squad.sgbds.id}}"/>
+                    {% endif%}
                     <br>
                 </div>
                 <div class="form-group">
                     <label for="nome_sgbds">Nome sgbds: </label>
-                    <input type="text" name="nome_sgbds" id="nome_sgbds" class="form-group"/>
+                    <input type="text" name="nome_sgbds" id="nome_sgbds" class="form-group" value="{{squad.sgbds.nome}}"/>
                     <br>
                 </div>
                 <input type="submit"class='btn' href="/salvar" value="Cadastrar">    

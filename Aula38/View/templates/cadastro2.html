@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar</title>
+    <link rel="stylesheet" href="../static/estilo.css">
+</head>
+<body>
+    <div class="container">
+        <div class="display2">
+            <a href="/" class="btn">Home</a>
+            <form action={{caminho}} method="post">
+                <input type="hidden" name="id" id="id" value="{{classe.id}}"> <br/>
+                <div class="form-group">
+                    <label for="nome">Nome: </label>
+                    <input type="text" name="nome" id="nome" class="form-group"/>
+                    <br>
+                </div>
+                <input type="submit"class='btn' href={{caminho}} value="Cadastrar">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

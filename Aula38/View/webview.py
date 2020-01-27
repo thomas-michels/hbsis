@@ -25,7 +25,8 @@ def cadastrar():
     squad = Squad()
 
     if 'id' in request.args:
-        squad.id = request.args['id']
+        id = request.args['id']
+        squad = sc.buscar(id)
 
     return render_template('cadastrar.html', squad=squad)
 
@@ -35,7 +36,8 @@ def cadastrar_bc():
     caminho = '/salvar_bc'
 
     if 'id' in request.args:
-        classe.id = request.args['id']
+        id = request.args['id']
+        classe = bc.buscar(id)
 
     return render_template('cadastro2.html', classe=classe, caminho=caminho)
 
@@ -45,7 +47,8 @@ def cadastrar_sgbds():
     caminho = '/salvar_sgbds'
 
     if 'id' in request.args:
-        classe.id = request.args['id']
+        id = request.args['id']
+        classe = sg.buscar(id)
 
     return render_template('cadastro2.html', classe=classe, caminho=caminho)
 
@@ -55,7 +58,8 @@ def cadastrar_fc():
     caminho = '/salvar_fc'
 
     if 'id' in request.args:
-        classe.id = request.args['id']
+        id = request.args['id']
+        classe = fc.buscar(id)
 
     return render_template('cadastro2.html', classe=classe, caminho=caminho)
 
