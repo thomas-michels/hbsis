@@ -181,8 +181,8 @@ if __name__ == '__main__':
     squad.sgbds.id = 1
     #sc.alterar(squad)
     #sc.deletar(10)
-    b = sc.buscar(5)
-    print(b)
+    #b = sc.buscar(5)
+    #print(b)
     a = sc.listar_todos()
     for i in a:
         print(i)
