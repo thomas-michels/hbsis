@@ -23,12 +23,16 @@ def inicio():
 @app.route('/cadastrar')
 def cadastrar():
     squad = Squad()
+    lista_bc = bc.listar_todos()
+    lista_fc = fc.listar_todos()
+    lista_sgbd = sg.listar_todos()
 
     if 'id' in request.args:
         id = request.args['id']
         squad = sc.buscar(id)
 
-    return render_template('cadastrar.html', squad=squad)
+
+    return render_template('cadastrar.html', squad=squad, lista_bc=lista_bc, lista_fc=lista_fc, lista_sgbd=lista_sgbd)
 
 @app.route('/cadastrar_bc')
 def cadastrar_bc():

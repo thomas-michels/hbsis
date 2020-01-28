@@ -28,47 +28,63 @@
                     <br>
                 </div>
                 <div class="form-group">
-                    {% if squad.id == 0%}
-                        <input type="hidden" name="id_linguagemBackEnd" id="id_linguagemBackEnd" class="form-group"/>
+                    <label for="id_linguagemBackEnd">ID Linguagem BackEnd</label>
+                    <select name="id_linguagemBackEnd">
+                        <option value=0>0 - Novo</option>
+                        {% for opcao in lista_bc %}
+                            <option value="{{opcao.id}}">{{opcao.id}} - {{opcao.nome}}</option>
+                        {% endfor %}
+                    </select>
+                    <br>
+                </div>
+                <div class="form-group">
+                    {% if squad.id == 0 %}
+                        <label for="nome_linguagemBackEnd">Nome Linguaguem BackEnd: </label>
+                        <input type="text" name="nome_linguagemBackEnd" id="nome_linguagemBackEnd" class="form-group" value="{{squad.linguagemBackEnd.nome}}"/>
                     {% else%}
-                        <label for="id_linguagemBackEnd">ID Linguagem BackEnd</label>
-                        <input type="text" name="id_linguagemBackEnd" id="id_linguagemBackEnd" class="form-group" value="{{squad.linguagemBackEnd.id}}"/>
+                        <input type="hidden" name="nome_linguagemBackEnd" id="nome_linguagemBackEnd" class="form-group"/>
+                    <br>
                     {% endif%}
+                </div>
+                <div class="form-group">
+                    <label for="id_frameworkFrontEnd">ID Framework</label>
+                    <select name="id_frameworkFrontEnd">
+                        <option value=0>0 - Novo</option>
+                        {% for opcao in lista_fc %}
+                            <option value="{{opcao.id}}">{{opcao.id}} - {{opcao.nome}}</option>
+                        {% endfor %}
+                    </select>
                     <br>
                 </div>
                 <div class="form-group">
-                    <label for="nome_linguagemBackEnd">Nome Linguaguem BackEnd: </label>
-                    <input type="text" name="nome_linguagemBackEnd" id="nome_linguagemBackEnd" class="form-group" value="{{squad.linguagemBackEnd.nome}}"/>
-                    <br>
-                </div>
-                <div class="form-group">
-                    {% if squad.id == 0%}
-                        <input type="hidden" name="id_frameworkFrontEnd" id="id_frameworkFrontEnd" class="form-group"/>
+                    {% if squad.id == 0 %}
+                        <label for="nome_frameworkFrontEnd">Nome Framework FrontEnd: </label>
+                        <input type="text" name="nome_frameworkFrontEnd" id="nome_frameworkFrontEnd" class="form-group" value="{{squad.frameworkFrontEnd.nome}}"/>
                     {% else%}
-                        <label for="id_frameworkFrontEnd">Framework FrontEnd</label>
-                        <input type="text" name="id_frameworkFrontEnd" id="id_frameworkFrontEnd" class="form-group" value="{{squad.frameworkFrontEnd.id}}"/>
+                        <input type="hidden" name="nome_frameworkFrontEnd" id="nome_frameworkFrontEnd" class="form-group"/>
+                    <br>
                     {% endif%}
+                </div>
+                <div class="form-group">
+                    <label for="id_sgbds">ID SGBD</label>
+                    <select name="id_sgbds">
+                        <option value=0>0 - Novo</option>
+                        {% for opcao in lista_sgbd %}
+                            <option value="{{opcao.id}}">{{opcao.id}} - {{opcao.nome}}</option>
+                        {% endfor %}
+                   </select>
                     <br>
                 </div>
                 <div class="form-group">
-                    <label for="nome_frameworkFrontEnd">Nome Framework FrontEnd: </label>
-                    <input type="text" name="nome_frameworkFrontEnd" id="nome_frameworkFrontEnd" class="form-group" value="{{squad.frameworkFrontEnd.nome}}"/>
-                    <br>
-                </div>
-                <div class="form-group">
-                    {% if squad.id == 0%}
-                        <input type="hidden" name="id_sgbds" id="id_sgbds" class="form-group"/>
+                    {% if squad.id == 0 %}
+                        <label for="nome_sgbds">Nome sgbds: </label>
+                        <input type="text" name="nome_sgbds" id="nome_sgbds" class="form-group" value="{{squad.sgbds.nome}}"/>
                     {% else%}
-                        <label for="id_sgbds">ID SGBD</label>
-                        <input type="text" name="id_sgbds" id="id_sgbds" class="form-group" value="{{squad.sgbds.id}}"/>
+                        <input type="hidden" name="nome_sgbds" id="nome_sgbds" class="form-group"/>
+                    <br>
                     {% endif%}
-                    <br>
                 </div>
-                <div class="form-group">
-                    <label for="nome_sgbds">Nome sgbds: </label>
-                    <input type="text" name="nome_sgbds" id="nome_sgbds" class="form-group" value="{{squad.sgbds.nome}}"/>
-                    <br>
-                </div>
+                <a>Obs. Caso utilizar a opção de inserir por IDs o SGBD, Framework ou Backend não utilizar os campos para colocar o nome do mesmo.</a>
                 <input type="submit"class='btn' href="/salvar" value="Cadastrar">    
             </form>
         </div>
