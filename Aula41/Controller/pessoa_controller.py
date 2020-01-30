@@ -1,16 +1,27 @@
 
 from flask_restful import Resource
 
+from DAO.pessoa_dao import PessoaDAO
+from Model.pessoa import Pessoa
+
+
 class PessoaController(Resource):
 
+    def __init__(self):
+        self.pessoaDao = PessoaDAO()
+
     def get(self):
-        return 'Metodo - GET'
+        result = self.pessoaDao.list_all()
+        return result
 
     def post(self):
-        return 'Metodo - POST'
+        result = self.pessoaDao.insert("Pessoa")
+        return result
 
     def put(self):
-        return 'Metodo - PUT'
+        result = self.pessoaDao.update("Pessoa 1")
+        return result
 
     def delete(self):
-        return 'Metodo - Delete'
+        result = self.pessoaDao.remove(3)
+        return result
