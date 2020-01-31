@@ -1,6 +1,5 @@
 
 from flask_restful import Resource
-
 from DAO.pessoa_dao import PessoaDAO
 from Model.pessoa import Pessoa
 
