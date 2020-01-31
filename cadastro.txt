@@ -1,4 +1,0 @@
-1;thomas;19;m;aa@aa;1234
-2;brtt;28;m;bb@bb;3445
-3;caju;26;f;cc@cc;5653
-4;ted;17;m;dd@dd;6578
