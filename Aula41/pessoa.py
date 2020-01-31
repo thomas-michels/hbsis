@@ -6,7 +6,8 @@ from Controller.pessoa_controller import PessoaController
 app = Flask(__name__)
 api = Api(app)
 
-api.add_resource(PessoaController, '/pessoa')
+api.add_resource(PessoaController, '/pessoa', endpoint='pessoas')
+api.add_resource(PessoaController, '/pessoa/<int:id>', endpoint='pessoa')
 
 
 @app.route('/')

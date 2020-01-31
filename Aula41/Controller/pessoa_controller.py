@@ -9,9 +9,12 @@ class PessoaController(Resource):
     def __init__(self):
         self.pessoaDao = PessoaDAO()
 
-    def get(self):
-        result = self.pessoaDao.list_all()
-        return result
+    def get(self, id=None):
+        if id:
+            result = self.pessoaDao.get_id(id)
+            return result
+
+        return self.pessoaDao.list_all()
 
     def post(self):
         result = self.pessoaDao.insert("Pessoa")
