@@ -1,5 +1,7 @@
 
-from flask_restful import Resource
+import sys
+sys.path.append('C:/Users/900164/Documents/hbsis/hbsis/Aula41')
+from flask_restful import Resource, request
 from DAO.pessoa_dao import PessoaDAO
 from Model.pessoa import Pessoa
 
@@ -14,16 +16,30 @@ class PessoaController(Resource):
             result = self.pessoaDao.get_id(id)
             return result
 
-        return self.pessoaDao.list_all()
+        retorno = self.pessoaDao.list_all()
+        return retorno
 
     def post(self):
-        result = self.pessoaDao.insert("Pessoa")
+        pessoa = Pessoa()
+        pessoa.nome = request.json['nome']
+        pessoa.id_endereco = request.json['id_endereco']
+        result = self.pessoaDao.insert(pessoa)
         return result
 
-    def put(self):
-        result = self.pessoaDao.update("Pessoa 1")
+    def put(self, id):
+        pessoa = Pessoa()
+        pessoa.id = id
+        pessoa.nome = request.json['nome']
+        pessoa.id_endereco = request.json['id_endereco']
+        result = self.pessoaDao.update(pessoa)
         return result
 
-    def delete(self):
-        result = self.pessoaDao.remove(3)
+    def delete(self, id):
+        result = self.pessoaDao.remove(id)
         return result
+
+if __name__ == '__main__':
+    pc = PessoaController()
+    a = pc.get()
+    for i in a:
+        print(i)
