@@ -1,6 +1,6 @@
 
 import sys
-sys.path.append('C:/Users/900164/Documents/hbsis/hbsis/Aula41')
+sys.path.append('C:/Users/900164/Documents/hbsis/hbsis/Aula41/arquivos')
 from flask_restful import Resource, request
 from DAO.pessoa_dao import PessoaDAO
 from Model.pessoa import Pessoa
