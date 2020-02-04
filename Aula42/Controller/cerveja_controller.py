@@ -41,9 +41,3 @@ class CervejaController(Resource):
     def delete(self, id):
         result = self.cd.remove(id)
         return result
-
-if __name__ == '__main__':
-    pc = PessoaController()
-    a = pc.get()
-    for i in a:
-        print(i)
