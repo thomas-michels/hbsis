@@ -1,6 +1,7 @@
 
 import sqlalchemy as db
 from sqlalchemy.ext.declarative import declarative_base
+from hbsis.Aula43.Model.cerveja_model import CervejaModel
 
 Basemodel = declarative_base()
 
@@ -25,6 +26,18 @@ create_party = db.orm.sessionmaker()
 create_party.configure(bind=conexao)
 party = create_party()
 
-cervejas = party.query(Cerveja).all()
-for i in cervejas:
-    print(i)
+
+cerveja = CervejaModel()
+cerveja.id = 3
+cerveja.marca = "brahma"
+cerveja.abv = 22
+cerveja.ibu = 33
+cerveja.ebc = 44
+
+cervejas = party.query(CervejaModel).all()
+query = party.query(Cerveja).filter(Cerveja.id.like('%4')).order_by(Cerveja.id)
+a = query.first()
+print(a)
+
+#for i in cervejas:
+#    print(i)

@@ -1,72 +1,39 @@
 
-import MySQLdb
 import sys
-sys.path.append('C:/Users/900164/Documents/hbsis/hbsis/Aula42')
-from Model.cerveja import Cerveja
+sys.path.append('C:/Users/900164/Documents/hbsis/hbsis/Aula43')
+from Model.cerveja_model import CervejaModel
+from DAO.base_dao import BaseDAO
 
 
-class CervejaDAO:
+class CervejaDAO(BaseDAO):
 
     def __init__(self):
-        self.connetion = MySQLdb.connect(host='mysql.topskills.dev', database='topskills01', user='topskills01', passwd='ts2019')
-        self.cursor = self.connetion.cursor()
-
-    def conversor(self, tuplas):
-        lista = []
-        try:
-            if not tuplas.nome:
-                pass
-            else:
-                return lista
-
-        except AttributeError:
-            if type(tuplas[0]) == tuple:
-                for beer in tuplas:
-                    cerveja = Cerveja()
-                    cerveja.id = beer[0]
-                    cerveja.marca = beer[1]
-                    cerveja.abv = beer[2]
-                    cerveja.ibu = beer[3]
-                    cerveja.ebc = beer[4]
-
-                    dic = cerveja.__dict__
-
-                    lista.append(dic)
-
-                return lista
-
-            else:
-                cerveja = Pessoa()
-                cerveja.id = tuplas[0]
-                cerveja.marca = tuplas[1]
-                cerveja.abv = tuplas[2]
-                cerveja.ibu = tuplas[3]
-                cerveja.ebc = tuplas[4]
-                lista = cerveja
-                return lista.__dict__
+        super().__init__()
 
     def list_all(self):
-        self.cursor.execute(f"SELECT * FROM Thomas_Cerveja;")
-        result = self.cursor.fetchall()
-        classes = self.conversor(result)
-        return classes
+        cervejas = self.party.query(CervejaModel).all()
+        retorno = self.conversor(cervejas)
+        return retorno
 
     def get_id(self, id):
-        self.cursor.execute(f'SELECT * FROM Thomas_Cerveja WHERE id={id}')
-        result = self.cursor.fetchone()
-        classe = self.conversor(result)
-        return classe
+        query = self.party.query(CervejaModel).filter(CervejaModel.id.like(f'%{id}'))
+        classe = query.first()
+        return classe.as_dict()
 
-    def insert(self, cerveja:Cerveja):
-        self.cursor.execute(f'INSERT INTO Thomas_Cerveja (marca, abv, ibu, ebc) VALUES ("{cerveja.marca}", {cerveja.abv}, {cerveja.ibu}, {cerveja.ebc})')
-        self.connetion.commit()
-        cerveja.id = self.cursor.lastrowid
-        return cerveja.__dict__
+    def insert(self, cerveja:CervejaModel):
+        self.party.add(cerveja)
+        self.party.commit()
+        return cerveja.as_dict()
 
-    def update(self, cerveja:Cerveja):
-        self.cursor.execute(f"update Thomas_Cerveja SET marca = '{cerveja.marca}', abv = {cerveja.abv}, ibu = {cerveja.ibu}, ebc = {cerveja.ebc} where id = {cerveja.id};")
-        self.connetion.commit()
-        return cerveja.__dict__
+    def update(self, cerveja:CervejaModel):
+        query = self.party.query(CervejaModel).filter(CervejaModel.id.like(f'%{cerveja.id}')).one()
+        query.update({CervejaModel.marca: cerveja.marca,
+                      CervejaModel.abv: cerveja.abv,
+                      CervejaModel.ibu: cerveja.ibu,
+                      CervejaModel.ebc: cerveja.ebc})
+        self.party.commit()
+
+        return query.as_dict()
 
     def remove(self, id):
         self.cursor.execute(f"DELETE FROM Thomas_Cerveja WHERE id = {id};")

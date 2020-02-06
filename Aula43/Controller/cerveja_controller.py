@@ -1,43 +1,32 @@
 
 import sys
-sys.path.append('C:/Users/900164/Documents/hbsis/hbsis/Aula41/arquivos')
-from flask_restful import Resource, request
+sys.path.append('C:/Users/900164/Documents/hbsis/hbsis/Aula43')
 from DAO.cerveja_dao import CervejaDAO
-from Model.cerveja import Cerveja
+from flask_restful import request
+from Model.cerveja_model import CervejaModel
+from Controller.base_controller import BaseController
 
 
-class CervejaController(Resource):
+class CervejaController(BaseController):
 
     def __init__(self):
-        self.cd = CervejaDAO()
+        cd = CervejaDAO()
+        super().__init__(cd)
 
-    def get(self, id=None):
-        if id:
-            result = self.cd.get_id(id)
-            return result
-
-        retorno = self.cd.list_all()
-        return retorno
+    def get_parametros(self):
+        cerveja = CervejaModel()
+        cerveja.marca = request.json['marca']
+        cerveja.abv = request.json['abv']
+        cerveja.ibu = request.json['ibu']
+        cerveja.ebc = request.json['ebc']
+        return cerveja
 
     def post(self):
-        cerveja = Cerveja()
-        cerveja.marca = request.json['marca']
-        cerveja.abv = request.json['abv']
-        cerveja.ibu = request.json['ibu']
-        cerveja.ebc = request.json['ebc']
-        result = self.cd.insert(cerveja)
-        return result
+        classe = self.get_parametros()
+        return self.db.insert(classe)
 
     def put(self, id):
-        cerveja = Cerveja()
-        cerveja.id = id
-        cerveja.marca = request.json['marca']
-        cerveja.abv = request.json['abv']
-        cerveja.ibu = request.json['ibu']
-        cerveja.ebc = request.json['ebc']
-        result = self.cd.update(cerveja)
-        return result
-
-    def delete(self, id):
-        result = self.cd.remove(id)
+        classe = self.get_parametros()
+        classe.id = id
+        result = self.db.update(classe)
         return result
