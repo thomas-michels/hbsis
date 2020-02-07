@@ -20,9 +20,7 @@ class CervejaDAO(BaseDAO):
         return super().insert(cerveja).as_dict()
 
     def update(self, cerveja:CervejaModel) -> dict:
-        self.party.merge(cerveja)
-        self.party.commit()
-        return cerveja.as_dict()
+        return super().update(cerveja).as_dict()
 
     def remove(self, id) -> str:
         return super().remove(CervejaModel, id)
