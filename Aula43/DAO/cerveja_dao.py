@@ -11,31 +11,23 @@ class CervejaDAO(BaseDAO):
         super().__init__()
 
     def list_all(self):
-        cervejas = self.party.query(CervejaModel).all()
-        retorno = self.conversor(cervejas)
-        return retorno
+        return super().list_all(CervejaModel)
 
     def get_id(self, id):
-        query = self.party.query(CervejaModel).filter(CervejaModel.id.like(f'%{id}'))
-        classe = query.first()
-        return classe.as_dict()
+        return super().get_id(CervejaModel, id)
 
     def insert(self, cerveja:CervejaModel):
-        self.party.add(cerveja)
-        self.party.commit()
-        return cerveja.as_dict()
+        objeto = super().insert(cerveja)
+        return objeto.as_dict()
 
     def update(self, cerveja:CervejaModel):
-        query = self.party.query(CervejaModel).filter(CervejaModel.id.like(f'%{cerveja.id}')).one()
+        query = self.party.query(CervejaModel).filter(CervejaModel.id == cerveja.id)
         query.update({CervejaModel.marca: cerveja.marca,
                       CervejaModel.abv: cerveja.abv,
                       CervejaModel.ibu: cerveja.ibu,
-                      CervejaModel.ebc: cerveja.ebc})
+                      CervejaModel.ebc: cerveja.ebc}, synchronize_session = False)
         self.party.commit()
-
-        return query.as_dict()
+        return cerveja.as_dict()
 
     def remove(self, id):
-        self.cursor.execute(f"DELETE FROM Thomas_Cerveja WHERE id = {id};")
-        self.connetion.commit()
-        return f"Removendo cerveja com id {id}"
+        return super().remove(CervejaModel, id)
