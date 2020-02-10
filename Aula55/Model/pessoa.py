@@ -2,6 +2,7 @@
 import sqlalchemy as db
 from hbsis.Aula55.Model.base import Base
 
+
 class Pessoa(Base):
 
     __tablename__ = "Thomas_Pessoa"
