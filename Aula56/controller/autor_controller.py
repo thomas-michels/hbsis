@@ -1,9 +1,12 @@
+
 from flask import request
 from hbsis.Aula56.controller.base_controller import BaseController
 from hbsis.Aula56.dao.autor_dao import AutorDao
 from hbsis.Aula56.model.autor import Autor
 
+
 class AutorController(BaseController):
+
     def __init__(self):
         dao = AutorDao()
         super().__init__(dao)
