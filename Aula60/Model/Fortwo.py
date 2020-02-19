@@ -9,27 +9,41 @@ class Fortwo:
         self.destino = ""
 
     def set_motorista(self, motorista=None):
+        if self.__valida_regra_motorista__(motorista):
+            self.motorista = motorista
+
+    def __valida_regra_motorista__(self, motorista) -> bool:
         try:
             if motorista in self.motorista_permitido:
-                self.motorista = motorista
+                return True
 
             else:
                 raise ValueError
 
         except ValueError:
-            print("Motorista não autorizado")
+            return False
 
     def get_motorista(self):
         return self.motorista
 
-    def set_passageiro(self, passageiro=None):
+    def __valida_regra_passageiro__(self, passageiro) -> bool:
         if self.motorista == 'policial':
             if passageiro == 'presidiario':
-                self.passageiro = passageiro
+                return True
 
         elif self.motorista == 'piloto':
             if passageiro != 'comissario1' and passageiro != 'comissario2' and passageiro != 'presidiario':
-                self.passageiro = passageiro
+                return True
+
+        elif self.motorista == 'chefe de servico':
+            if passageiro != 'oficial1' and passageiro != 'oficial2' and passageiro != 'presidiario':
+                return True
+
+        return False
+
+    def set_passageiro(self, passageiro=None):
+        if self.__valida_regra_passageiro__(passageiro):
+            self.passageiro = passageiro
 
     def set_posicao(self, posicao):
         self.posicao_atual = posicao
