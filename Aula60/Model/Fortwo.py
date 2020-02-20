@@ -1,16 +1,17 @@
 
 class Fortwo:
-    posicao_atual = "Terminal"
 
     def __init__(self, motorista=None, passageiro=None):
         self.motorista_permitido = ['piloto', 'chefe de servico', 'policial']
         self.motorista = motorista
         self.passageiro = passageiro
-        self.destino = ""
 
     def set_motorista(self, motorista=None):
         if self.__valida_regra_motorista__(motorista):
             self.motorista = motorista
+            return True
+
+        return False
 
     def __valida_regra_motorista__(self, motorista) -> bool:
         try:
@@ -44,6 +45,19 @@ class Fortwo:
     def set_passageiro(self, passageiro=None):
         if self.__valida_regra_passageiro__(passageiro):
             self.passageiro = passageiro
+            return True
 
-    def set_posicao(self, posicao):
-        self.posicao_atual = posicao
+        return False
+
+    def get_passageiro(self):
+        return self.passageiro
+
+    def viagem(self, origem, destino):
+        print(f'Saindo do {origem}')
+        print(f'Iniciando viagem...')
+        print(f'Motorista: {self.get_motorista()}')
+        print(f'Passageiro: {self.get_passageiro()}')
+        print(f'Chegando em {destino}')
+        print(f'Saindo...')
+        print(f'{self.get_motorista()} e {self.passageiro} descem')
+        print("")
