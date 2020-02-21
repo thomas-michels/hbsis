@@ -9,7 +9,9 @@ class BaseLocal:
 
     def entrada(self, pessoa):
         if self.valida_entrada(pessoa):
-            self.__pessoas.append(pessoa)
+            if pessoa != '':
+                self.__pessoas.append(pessoa)
+
             return True
 
         else:

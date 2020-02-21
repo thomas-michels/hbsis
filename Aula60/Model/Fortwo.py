@@ -61,3 +61,6 @@ class Fortwo:
         print(f'Saindo...')
         print(f'{self.get_motorista()} e {self.passageiro} descem')
         print("")
+        print(f'{origem}: {origem.get_pessoas()}')
+        print(f'{destino}: {destino.get_pessoas()}')
+        print("")

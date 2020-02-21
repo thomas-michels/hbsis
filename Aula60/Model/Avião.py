@@ -10,7 +10,7 @@ class Aviao(BaseLocal):
         super().__init__(self.__pessoas)
 
     def get_pessoas(self):
-        return super().get_pessoas(self.pessoas)
+        return super().get_pessoas()
 
     def __str__(self):
         return "Aviao"

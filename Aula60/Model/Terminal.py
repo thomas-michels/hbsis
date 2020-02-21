@@ -11,7 +11,7 @@ class Terminal(BaseLocal):
         super().__init__(self.__pessoas)
 
     def get_pessoas(self) -> list:
-        return super().get_pessoas(self.__pessoas)
+        return super().get_pessoas()
 
     def __str__(self):
         return 'Terminal'
