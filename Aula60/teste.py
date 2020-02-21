@@ -28,11 +28,11 @@ def viagem(pessoa1, pessoa2, origem: BaseLocal, destino: BaseLocal):
     else:
         print("Erro 1")
 
+
 if __name__ == '__main__':
 
     terminal = Terminal()
     aviao = Aviao()
-
 
     viagem('piloto', 'oficial1', terminal, aviao)
     viagem('piloto', '', aviao, terminal)
@@ -47,4 +47,3 @@ if __name__ == '__main__':
     viagem('policial', 'presidiario', terminal, aviao)
     viagem('chefe de servico', '', aviao, terminal)
     viagem('chefe de servico', 'piloto', terminal, aviao)
-
