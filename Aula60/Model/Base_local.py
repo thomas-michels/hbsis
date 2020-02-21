@@ -7,7 +7,7 @@ class BaseLocal:
     def get_pessoas(self) -> list:
         return self.__pessoas
 
-    def entrada(self, pessoa):
+    def entrada(self, pessoa) -> bool:
         if self.valida_entrada(pessoa):
             if pessoa != '':
                 self.__pessoas.append(pessoa)
@@ -17,7 +17,7 @@ class BaseLocal:
         else:
             return False
 
-    def saida(self, pessoa):
+    def saida(self, pessoa) -> bool:
         if self.validar_saida(pessoa):
             if pessoa != '':
                 self.__pessoas.remove(pessoa)
@@ -27,7 +27,7 @@ class BaseLocal:
         else:
             return False
 
-    def validar_saida(self, pessoa):
+    def validar_saida(self, pessoa) -> bool:
 
         if pessoa in self.__pessoas:
 
@@ -57,7 +57,7 @@ class BaseLocal:
 
         return True
 
-    def valida_entrada(self, pessoa):
+    def valida_entrada(self, pessoa) -> bool:
 
         if len(self.__pessoas) <= 2:
 
